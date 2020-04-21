@@ -1,23 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/images/Fondo - Index.jpg" type="Texture" id=1]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=2]
 [ext_resource path="res://src/scripts/Index.gd" type="Script" id=3]
+[ext_resource path="res://src/fonts/BAUHS93.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 47
+outline_size = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 1 )
+Label/styles/normal = null
 
 [node name="Index" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 177.656, 356.139 )
-scale = Vector2( 0.863839, 1.16105 )
+position = Vector2( 513, 371 )
+scale = Vector2( 1.47, 1.47 )
 texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 700, 613 )
 
 [node name="Title" type="Label" parent="."]
-margin_left = 87.0
-margin_top = 224.0
-margin_right = 273.0
-margin_bottom = 296.0
-theme = ExtResource( 2 )
+margin_left = 423.0
+margin_top = 225.0
+margin_right = 609.0
+margin_bottom = 297.0
+theme = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Foottobe"
 align = 1
@@ -27,10 +45,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 95.0
-margin_top = 474.0
-margin_right = 273.0
-margin_bottom = 520.0
+margin_left = 423.0
+margin_top = 487.0
+margin_right = 601.0
+margin_bottom = 533.0
 theme = ExtResource( 2 )
 text = "Iniciar"
 __meta__ = {
