@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Foottobe"
-run/main_scene="res://scenes/Index.tscn"
+run/main_scene="res://src/scenes/Index.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://src/scripts/Game.gd"
 
 [display]
 

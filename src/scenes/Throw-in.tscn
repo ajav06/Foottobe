@@ -1,0 +1,206 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/images/player-1.png" type="Texture" id=1]
+[ext_resource path="res://src/images/soccer-throw-player.png" type="Texture" id=2]
+[ext_resource path="res://src/themes/theme_2.tres" type="Theme" id=3]
+[ext_resource path="res://src/images/star.png" type="Texture" id=4]
+[ext_resource path="res://src/images/player-2.png" type="Texture" id=5]
+[ext_resource path="res://src/scripts/Throw-in.gd" type="Script" id=6]
+[ext_resource path="res://src/images/Campo.png" type="Texture" id=7]
+[ext_resource path="res://src/images/yellow-card.png" type="Texture" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.0
+height = 82.0
+
+[node name="Throw-in" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Backgroun" type="Sprite" parent="."]
+position = Vector2( 224, 315 )
+texture = ExtResource( 7 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 45.0
+margin_top = 14.0
+margin_right = 118.0
+margin_bottom = 55.0
+theme = ExtResource( 3 )
+text = "100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+margin_left = 144.0
+margin_top = 14.0
+margin_right = 217.0
+margin_bottom = 55.0
+theme = ExtResource( 3 )
+text = "0:30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Card" type="Label" parent="."]
+margin_left = 311.0
+margin_top = 14.0
+margin_right = 384.0
+margin_bottom = 55.0
+theme = ExtResource( 3 )
+text = "01"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 576.0
+margin_right = 282.0
+margin_bottom = 617.0
+theme = ExtResource( 3 )
+text = "Top Right"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 528.0
+margin_bottom = 528.0
+rect_scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yellow-card" type="TextureRect" parent="."]
+margin_left = 284.0
+margin_top = 20.0
+margin_right = 519.0
+margin_bottom = 334.0
+rect_scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player-Throw" type="TextureRect" parent="."]
+margin_left = 256.0
+margin_top = 440.0
+margin_right = 716.0
+margin_bottom = 1630.0
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player-1_1" type="TextureRect" parent="."]
+margin_left = 80.0
+margin_top = 144.0
+margin_right = 175.0
+margin_bottom = 449.0
+rect_scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player-2_1" type="RigidBody2D" parent="."]
+position = Vector2( 120, 225 )
+input_pickable = true
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player-2_1"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player-2_1"]
+scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 5 )
+
+[node name="Player-2_2" type="RigidBody2D" parent="."]
+position = Vector2( 255, 180 )
+input_pickable = true
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player-2_2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player-2_2"]
+scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 5 )
+
+[node name="Player-1_2" type="TextureRect" parent="."]
+margin_left = 264.0
+margin_top = 144.0
+margin_right = 359.0
+margin_bottom = 449.0
+rect_scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player-1_3" type="TextureRect" parent="."]
+margin_left = 48.0
+margin_top = 368.0
+margin_right = 143.0
+margin_bottom = 673.0
+rect_scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player-2_3" type="RigidBody2D" parent="."]
+position = Vector2( 90, 450 )
+input_pickable = true
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player-2_3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player-2_3"]
+scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 5 )
+
+[node name="Player-2_4" type="RigidBody2D" parent="."]
+position = Vector2( 235, 335 )
+input_pickable = true
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player-2_4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player-2_4"]
+scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 5 )
+
+[node name="Player-1_4" type="TextureRect" parent="."]
+margin_left = 245.0
+margin_top = 300.0
+margin_right = 340.0
+margin_bottom = 605.0
+rect_scale = Vector2( 0.38, 0.38 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+[connection signal="input_event" from="Player-2_1" to="." method="_on_Player2_1_input_event"]
+[connection signal="input_event" from="Player-2_2" to="." method="_on_Player2_2_input_event"]
+[connection signal="input_event" from="Player-2_3" to="." method="_on_Player2_3_input_event"]
+[connection signal="input_event" from="Player-2_4" to="." method="_on_Player2_4_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
