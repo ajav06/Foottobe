@@ -3,7 +3,7 @@
 [ext_resource path="res://src/images/Fondo - Main.jpg" type="Texture" id=1]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=2]
 [ext_resource path="res://src/scripts/Credits.gd" type="Script" id=3]
-[ext_resource path="res://src/themes/theme_3.tres" type="Theme" id=4]
+[ext_resource path="res://src/themes/theme_2.tres" type="Theme" id=4]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 3 )
@@ -28,21 +28,28 @@ __meta__ = {
 
 [node name="Back" type="Button" parent="."]
 margin_left = 423.0
-margin_top = 497.0
+margin_top = 485.0
 margin_right = 601.0
-margin_bottom = 545.0
+margin_bottom = 549.0
 theme = ExtResource( 2 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits_1" type="Label" parent="."]
+[node name="Credits" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits_1" type="Label" parent="Credits"]
 margin_left = 262.0
 margin_top = 148.0
 margin_right = 488.0
 margin_bottom = 401.0
-theme = ExtResource( 4 )
 text = "DESARROLLADO POR
 FTB TECH:
 
@@ -57,12 +64,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Credits_2" type="Label" parent="."]
+[node name="Credits_2" type="Label" parent="Credits"]
 margin_left = 501.0
 margin_top = 148.0
 margin_right = 794.0
 margin_bottom = 433.0
-theme = ExtResource( 4 )
 text = "EN EL MARCO DEL
 PROYECTO DE GRADO DE:
 

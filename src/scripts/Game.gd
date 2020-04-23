@@ -3,7 +3,8 @@ extends Node
 var bestscore = 0 setget set_bestscore
 var yellowcard = 0 setget set_yellowcard
 var redcard = 0 setget set_redcard
-var arraydata = [0,0,0]
+var timeRedCard = 0 setget set_timeRCard
+var arraydata = [0,0,0,0]
 const filepath = "user://datauser.data"
 
 func _ready():
@@ -18,27 +19,7 @@ func load_bestscore():
 	bestscore = arraydata[0]
 	yellowcard = arraydata[1]
 	redcard = arraydata[2]
-	file.close()
-	pass
-
-func save_bestscore():
-	var file = File.new()
-	file.open(filepath, File.WRITE)
-	file.store_var(bestscore)
-	file.close()
-	pass
-	
-func save_yellowcard():
-	var file = File.new()
-	file.open(filepath, File.WRITE)
-	file.store_var(yellowcard)
-	file.close()
-	pass
-	
-func save_redcard():
-	var file = File.new()
-	file.open(filepath, File.WRITE)
-	file.store_var(redcard)
+	timeRedCard = arraydata[3]
 	file.close()
 	pass
 	
@@ -65,5 +46,11 @@ func set_yellowcard(new_value):
 func set_redcard(new_value):
 	redcard += new_value
 	arraydata[2] = redcard
+	save_data()
+	pass
+
+func set_timeRCard(new_value):
+	timeRedCard = new_value
+	arraydata[3] = timeRedCard
 	save_data()
 	pass

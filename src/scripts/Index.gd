@@ -1,5 +1,5 @@
 extends Node2D
-
+var date
 
 func _ready():
 	pass 

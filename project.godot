@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Game="*res://src/scripts/Game.gd"
+GlobalVar="*res://src/scripts/GlobalVar.gd"
 
 [display]
 
