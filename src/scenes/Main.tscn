@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/images/cog-solid-small.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=2]
@@ -7,57 +7,10 @@
 [ext_resource path="res://src/images/star.png" type="Texture" id=5]
 [ext_resource path="res://src/images/Cards.png" type="Texture" id=6]
 [ext_resource path="res://src/images/Fondo - Main.jpg" type="Texture" id=7]
-[ext_resource path="res://src/themes/theme_3.tres" type="Theme" id=8]
-
-[sub_resource type="StyleBoxFlat" id=1]
-content_margin_left = 11.0
-bg_color = Color( 0.584314, 0.623529, 0.658824, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-
-[sub_resource type="StyleBoxFlat" id=2]
-content_margin_left = 11.0
-bg_color = Color( 0.584314, 0.623529, 0.658824, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-
-[sub_resource type="StyleBoxFlat" id=3]
-content_margin_left = 11.0
-bg_color = Color( 0.403922, 0.470588, 0.533333, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-
-[sub_resource type="StyleBoxFlat" id=4]
-content_margin_left = 11.0
-bg_color = Color( 0.403922, 0.470588, 0.533333, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
+[ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=8]
+[ext_resource path="res://src/images/exit-small.png" type="Texture" id=9]
+[ext_resource path="res://src/images/Fondo Main.png" type="Texture" id=10]
+[ext_resource path="res://src/images/Fondo Title.png" type="Texture" id=11]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -67,22 +20,9 @@ position = Vector2( 513, 303 )
 scale = Vector2( 1.64, 1.64 )
 texture = ExtResource( 7 )
 
-[node name="Title" type="Label" parent="."]
-margin_left = 466.0
-margin_top = 161.0
-margin_right = 560.0
-margin_bottom = 204.0
-theme = ExtResource( 3 )
-text = "Home"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Play" type="Button" parent="."]
 margin_left = 423.0
-margin_top = 485.0
+margin_top = 465.0
 margin_right = 601.0
 margin_bottom = 549.0
 theme = ExtResource( 3 )
@@ -92,40 +32,91 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="."]
-margin_left = 883.0
+[node name="Btn_small" type="Control" parent="."]
+margin_left = 93.0
 margin_top = 488.0
-margin_right = 941.0
-margin_bottom = 546.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
+margin_right = 133.0
+margin_bottom = 528.0
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="Btn_small"]
+margin_left = 790.0
+margin_right = 848.0
+margin_bottom = 58.0
 icon = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Search" type="Button" parent="."]
-margin_left = 93.0
-margin_top = 488.0
-margin_right = 151.0
-margin_bottom = 546.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
+[node name="Search" type="Button" parent="Btn_small"]
+margin_right = 58.0
+margin_bottom = 58.0
 icon = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time" type="Label" parent="."]
-margin_left = 472.0
-margin_top = 243.0
-margin_right = 551.0
-margin_bottom = 277.0
+[node name="Exit" type="Button" parent="Btn_small"]
+margin_left = 790.0
+margin_top = -108.0
+margin_right = 848.0
+margin_bottom = -50.0
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Home" type="Control" parent="."]
+margin_left = 506.0
+margin_top = 287.0
+margin_right = 546.0
+margin_bottom = 327.0
 theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Home"]
+margin_left = -115.0
+margin_top = -134.0
+margin_right = 127.0
+margin_bottom = 144.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bck_Title" type="TextureRect" parent="Home"]
+margin_left = -130.0
+margin_top = -162.0
+margin_right = 142.0
+margin_bottom = -113.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Home"]
+margin_left = -40.0
+margin_top = -158.0
+margin_right = 54.0
+margin_bottom = -115.0
+theme = ExtResource( 3 )
+text = "Home"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="Home"]
+margin_left = -34.0
+margin_top = -76.0
+margin_right = 45.0
+margin_bottom = -42.0
 text = "00:50"
 align = 1
 valign = 1
@@ -133,11 +124,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="."]
-margin_left = 506.0
-margin_top = 319.0
-margin_right = 557.0
-margin_bottom = 353.0
+[node name="Score" type="Label" parent="Home"]
+margin_right = 51.0
+margin_bottom = 34.0
 theme = ExtResource( 8 )
 text = "100"
 align = 1
@@ -146,11 +135,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Faild" type="Label" parent="."]
-margin_left = 485.0
-margin_top = 395.0
-margin_right = 579.0
-margin_bottom = 429.0
+[node name="Faild" type="Label" parent="Home"]
+margin_left = -21.0
+margin_top = 76.0
+margin_right = 73.0
+margin_bottom = 110.0
 theme = ExtResource( 8 )
 text = "01 / 05"
 align = 1
@@ -159,22 +148,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="TextureRect" parent="."]
-margin_left = 466.0
-margin_top = 321.0
-margin_right = 978.0
-margin_bottom = 833.0
+[node name="Start" type="TextureRect" parent="Home"]
+margin_left = -40.0
+margin_top = 2.0
+margin_right = 472.0
+margin_bottom = 514.0
 rect_scale = Vector2( 0.06, 0.06 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cards" type="TextureRect" parent="."]
-margin_left = 445.0
-margin_top = 396.0
-margin_right = 957.0
-margin_bottom = 908.0
+[node name="Cards" type="TextureRect" parent="Home"]
+margin_left = -61.0
+margin_top = 77.0
+margin_right = 451.0
+margin_bottom = 589.0
 rect_scale = Vector2( 0.07, 0.07 )
 texture = ExtResource( 6 )
 __meta__ = {
@@ -184,4 +173,5 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Btn_small/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Btn_small/Exit" to="." method="_on_Exit_pressed"]

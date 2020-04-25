@@ -6,19 +6,20 @@ var tipos_saques = ["Top left", "Top right", "Center", "Bottom left"]
 func _ready():
 	_cambiar_saque()
 	_collision_player_disabled(false)
-	$Header/Time.text = "0:" + str(int($Timer.time_left))
-	$Header/Score.text = "%03d" % GlobalVar.score
-	$Header/Card.text = "%02d" % GlobalVar.yellow_card
+	$Footer/Time.text = "0:" + str(int($Timer.time_left))
+	$Footer/Score.text = "%03d" % GlobalVar.score
+	$Footer/Card.text = "%02d" % GlobalVar.yellow_card
 
 
 func _process(delta):
 	if(GlobalVar.yellow_card >= 2):
 		$Timer.stop()
-		_collision_player_disabled(true)
+		GlobalVar.yellow_card = 0
+		get_tree().change_scene("res://src/scenes/Main.tscn")
 		
-	$Header/Time.text = "00:%02d" % int($Timer.time_left)
-	$Header/Score.text = "%03d" % GlobalVar.score
-	$Header/Card.text = "%02d" % GlobalVar.yellow_card
+	$Footer/Time.text = "00:%02d" % int($Timer.time_left)
+	$Footer/Score.text = "%03d" % GlobalVar.score
+	$Footer/Card.text = "%02d" % GlobalVar.yellow_card
 
 func _cambiar_saque():
 	randomize()
@@ -66,4 +67,29 @@ func _on_Player2_4_input_event(viewport, event, shape_idx):
 
 
 func _on_Timer_timeout():
-	_collision_player_disabled(true)
+	get_tree().change_scene("res://src/scenes/Main.tscn")
+
+
+func _on_Btn_Question_pressed():
+	$Btn_Question.visible = false
+	$Question.visible = true
+
+
+func _on_Btn_Exit_pressed():
+	$Question.visible = false
+	$Btn_Question.visible = true
+
+
+func _on_Btn_home_pressed():
+	get_tree().change_scene("res://src/scenes/Main.tscn")
+	pass
+
+
+func _on_Option_1_pressed():
+	_aumentar_score()
+	pass # Replace with function body.
+
+
+func _on_Option_2_pressed():
+	GlobalVar._aumentar_tarjeta()
+	pass # Replace with function body.

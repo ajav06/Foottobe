@@ -35,7 +35,7 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="."]
 margin_left = 423.0
-margin_top = 485.0
+margin_top = 465.0
 margin_right = 601.0
 margin_bottom = 549.0
 theme = ExtResource( 2 )

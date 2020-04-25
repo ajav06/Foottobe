@@ -32,8 +32,8 @@ func _penalizacion():
 	time_RedCard = OS.get_datetime()
 	time_RedCard["minute"] += 10
 	
-	if (time_RedCard["minute"] >= 60):
-		time_RedCard["minute"] -= 60
+	if (time_RedCard["minute"] >= 50):
+		time_RedCard["minute"] -= 50
 		time_RedCard["hour"] += 1
 		
 	if(time_RedCard["hour"] == 24):
