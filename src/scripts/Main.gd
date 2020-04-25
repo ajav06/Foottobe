@@ -28,7 +28,6 @@ func _calcular_timer():
 	
 	if(time_now['month'] == Game.timeRedCard['month'] && time_now['day'] == Game.timeRedCard['day']):
 		limit['hour'] = Game.timeRedCard['hour'] - time_now['hour']
-		print(Game.timeRedCard)
 			
 		if(limit['hour'] == 0):
 			limit['minute'] = Game.timeRedCard['minute'] - time_now['minute']
@@ -36,7 +35,6 @@ func _calcular_timer():
 			limit['second'] = Game.timeRedCard['second'] - time_now['second'] + limit['minute']
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
-			print($Timer.wait_time)
 			
 		elif(limit['hour'] == 1):
 			limit['minute'] = time_now['minute'] - Game.timeRedCard['minute'] - 50
@@ -44,7 +42,6 @@ func _calcular_timer():
 			limit['second'] = Game.timeRedCard['second'] - time_now['second'] + limit['minute']
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
-			print($Timer.wait_time)
 
 
 func _on_Exit_pressed():

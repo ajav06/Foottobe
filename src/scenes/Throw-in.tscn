@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/images/player-1.png" type="Texture" id=1]
 [ext_resource path="res://src/images/soccer-throw-player.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://src/images/Fondo Credits.png" type="Texture" id=10]
 [ext_resource path="res://src/images/times-solid-small.png" type="Texture" id=11]
 [ext_resource path="res://src/images/home-small.png" type="Texture" id=12]
+[ext_resource path="res://src/images/Pregunta.png" type="Texture" id=13]
+[ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=14]
 
 [node name="Throw-in" type="Node2D"]
 script = ExtResource( 6 )
@@ -215,7 +217,7 @@ __meta__ = {
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-theme = ExtResource( 9 )
+theme = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -235,55 +237,131 @@ margin_left = 312.0
 margin_top = 165.0
 margin_right = 715.0
 margin_bottom = 254.0
-text = "Pregunta de la situación
-de juego"
+text = "What you should do in this
+situation? Throw in"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option 1" type="Button" parent="Question"]
-margin_left = 295.0
-margin_top = 280.0
-margin_right = 473.0
-margin_bottom = 344.0
-text = "Correcta"
+[node name="Option_1" type="TextureButton" parent="Question"]
+margin_left = 249.0
+margin_top = 269.0
+margin_right = 499.0
+margin_bottom = 353.0
+theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option 2" type="Button" parent="Question"]
-margin_left = 552.0
-margin_top = 280.0
-margin_right = 730.0
-margin_bottom = 344.0
-text = "Incorrecta"
+[node name="bck" type="TextureRect" parent="Question/Option_1"]
+margin_right = 250.0
+margin_bottom = 84.0
+texture = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option 3" type="Button" parent="Question"]
-margin_left = 295.0
-margin_top = 376.0
-margin_right = 473.0
-margin_bottom = 440.0
-text = "Opción C"
+[node name="lbl" type="Label" parent="Question/Option_1"]
+margin_left = 38.0
+margin_top = 13.0
+margin_right = 208.0
+margin_bottom = 71.0
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option 4" type="Button" parent="Question"]
-margin_left = 552.0
-margin_top = 376.0
-margin_right = 730.0
-margin_bottom = 440.0
-text = "Opción D"
+[node name="Option_2" type="TextureButton" parent="Question"]
+margin_left = 526.0
+margin_top = 269.0
+margin_right = 776.0
+margin_bottom = 353.0
+theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Btn Exit" type="Button" parent="Question"]
+[node name="bck" type="TextureRect" parent="Question/Option_2"]
+margin_right = 250.0
+margin_bottom = 84.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl" type="Label" parent="Question/Option_2"]
+margin_left = 38.0
+margin_top = 13.0
+margin_right = 208.0
+margin_bottom = 71.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_3" type="TextureButton" parent="Question"]
+margin_left = 249.0
+margin_top = 369.0
+margin_right = 499.0
+margin_bottom = 453.0
+theme = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bck" type="TextureRect" parent="Question/Option_3"]
+margin_right = 250.0
+margin_bottom = 84.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl" type="Label" parent="Question/Option_3"]
+margin_left = 38.0
+margin_top = 13.0
+margin_right = 208.0
+margin_bottom = 71.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option_4" type="TextureButton" parent="Question"]
+margin_left = 526.0
+margin_top = 369.0
+margin_right = 776.0
+margin_bottom = 453.0
+theme = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bck" type="TextureRect" parent="Question/Option_4"]
+margin_right = 250.0
+margin_bottom = 84.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl" type="Label" parent="Question/Option_4"]
+margin_left = 38.0
+margin_top = 13.0
+margin_right = 208.0
+margin_bottom = 71.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Exit" type="Button" parent="Question"]
 margin_left = 778.0
 margin_top = 92.0
 margin_right = 836.0
@@ -295,7 +373,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 31.0
 one_shot = true
 autostart = true
 
@@ -310,8 +388,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Footer/Btn_home" to="." method="_on_Btn_home_pressed"]
-[connection signal="pressed" from="Question/Option 1" to="." method="_on_Option_1_pressed"]
-[connection signal="pressed" from="Question/Option 2" to="." method="_on_Option_2_pressed"]
-[connection signal="pressed" from="Question/Btn Exit" to="." method="_on_Btn_Exit_pressed"]
+[connection signal="pressed" from="Question/Option_1" to="." method="_on_Option_1_pressed"]
+[connection signal="pressed" from="Question/Option_2" to="." method="_on_Option_2_pressed"]
+[connection signal="pressed" from="Question/Btn_Exit" to="." method="_on_Btn_Exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
