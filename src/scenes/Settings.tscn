@@ -60,6 +60,8 @@ margin_left = 423.0
 margin_top = 164.0
 margin_right = 601.0
 margin_bottom = 238.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Sonido"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,6 +72,8 @@ margin_left = 423.0
 margin_top = 257.0
 margin_right = 601.0
 margin_bottom = 331.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Restaurar"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,6 +84,8 @@ margin_left = 423.0
 margin_top = 359.0
 margin_right = 601.0
 margin_bottom = 433.0
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Créditos"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,7 +96,9 @@ margin_left = 423.0
 margin_top = 465.0
 margin_right = 601.0
 margin_bottom = 549.0
+focus_mode = 0
 theme = ExtResource( 2 )
+enabled_focus_mode = 0
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -98,7 +98,9 @@ margin_left = 423.0
 margin_top = 465.0
 margin_right = 601.0
 margin_bottom = 549.0
+focus_mode = 0
 theme = ExtResource( 2 )
+enabled_focus_mode = 0
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false

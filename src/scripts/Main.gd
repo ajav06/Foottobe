@@ -37,11 +37,12 @@ func _calcular_timer():
 			$Timer.start()
 			
 		elif(limit['hour'] == 1):
-			limit['minute'] = time_now['minute'] - Game.timeRedCard['minute'] - 50
+			limit['minute'] = 60 - time_now['minute'] + Game.timeRedCard['minute']
 			limit['minute'] *=60
 			limit['second'] = Game.timeRedCard['second'] - time_now['second'] + limit['minute']
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
+			print('HOla bb')
 
 
 func _on_Exit_pressed():
