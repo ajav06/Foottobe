@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var tipos_saques = ["Pass the ball to\nany teanmate", 
 					"Pass the ball to\nthe goalkeeper", 
 					"Run up the\nclock",
@@ -9,13 +8,13 @@ var time = null
 var score = null
 var cards = null
 
+
 func _ready():
 	_cambiar_saque()
 	time = "0:" + str(int($Timer.time_left))
 	score = "%03d" % GlobalVar.score
 	cards = "%02d" % GlobalVar.yellow_card
 	_assign_text()
-
 
 func _process(delta):
 	if(GlobalVar.yellow_card >= 2):
@@ -60,7 +59,7 @@ func _on_Timer_timeout():
 
 func _on_Btn_Question_pressed():
 	$Players.visible = false
-	$Backgroun.visible = true
+	$Background.visible = true
 	$Btn_Question.visible = false
 	$Question.visible = true
 	$Btn_Back.visible = true
@@ -71,21 +70,31 @@ func _on_Btn_home_pressed():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 	pass
 
-
 func _on_Option_1_pressed():
 	_aumentar_score()
+	$answer.visible = true
+	$Question.visible = false
 	pass # Replace with function body.
-
 
 func _on_Option_2_pressed():
 	GlobalVar._aumentar_tarjeta()
 	pass # Replace with function body.
 
+func _on_Option_3_pressed():
+	GlobalVar._aumentar_tarjeta()
+	pass # Replace with function body.
+	
+func _on_Option_4_pressed():
+	GlobalVar._aumentar_tarjeta()
+	pass # Replace with function body.
+	
 
 func _on_Btn_Back_pressed():
-	$Backgroun.visible = false
+	$Background.visible = false
 	$Players.visible = true
 	$Question.visible = false
 	$Btn_Back.visible = false
 	$Btn_Question.visible = true
 	$Footer.visible = true
+	$answer.visible = false
+
