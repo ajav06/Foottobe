@@ -4,12 +4,10 @@ var yellow_card = 0
 var time_RedCard
 var score = 0
 
-
 func _ready():
 	yellow_card = 0;
 	score = 0;
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
