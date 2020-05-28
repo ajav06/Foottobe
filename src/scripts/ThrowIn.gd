@@ -12,11 +12,12 @@ var cards = null
 
 var numero_preguntas_nivel = 10
 var turno
+var user_ans
 
 # Cargamos nuestro fichero de preguntas en una variable
 onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
 
-var respuesta_correcta = ""
+var respuesta_correcta
 
 # Arrays 
 var indices:Array = [] # Aquí almacenaremos todos los números de pregunta, las "key" del diccionario
@@ -94,46 +95,56 @@ func _on_Btn_Question_pressed():
 func _on_Btn_home_pressed():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 	pass
-	"""
+
 func _on_Option_1_pressed():
 #	_aumentar_score()
-#	user_ans = 0
+	user_ans = 0
 	$Answer_Window.visible = true
 	$Question.visible = false
 #	$Btn_Next.visible = true
-#	_prompt_if_correct()
+	_prompt_if_correct()
 	pass # Replace with function body.
 
 func _on_Option_2_pressed():
-#	user_ans = 1
+	user_ans = 1
 	$Answer_Window.visible = true
 	$Question.visible = false
 #	GlobalVar._aumentar_tarjeta()
-#	_prompt_if_correct()
+	_prompt_if_correct()
 	pass # Replace with function body.
 
 func _on_Option_3_pressed():
-#	user_ans = 2
+	user_ans = 2
 	$Answer_Window.visible = true
 	$Question.visible = false
 #	GlobalVar._aumentar_tarjeta()
-#	_prompt_if_correct()
+	_prompt_if_correct()
 	pass # Replace with function body.
 	
 func _on_Option_4_pressed():
-#	user_ans = 3
+	user_ans = 3
 	$Answer_Window.visible = true
 	$Question.visible = false
 #	GlobalVar._aumentar_tarjeta()
-#	_prompt_if_correct()
+	_prompt_if_correct()
 	pass # Replace with function body.
-	"""
-#func _prompt_if_correct():
-#	if(user_ans==correct_ans):
-#		_aumentar_score()
-#	else:
-#		GlobalVar._aumentar_tarjeta()
 
+func _prompt_if_correct():
+	if(user_ans==respuesta_correcta):
+		_aumentar_score()
+		print('it works')
+		#get_tree().reload_current_scene()
+	else:
+		GlobalVar._aumentar_tarjeta()
+		print('doesnt work')
+	 
+	# comprobamos si es el final del juego
+	if turno < numero_preguntas_nivel-1:
+		turno += 1 # pasamos a otra pregunta
+		get_tree().change_scene("")
+		carga_pregunta()
+	else:
+		print('F')
 
 func _on_Btn_Back_pressed():
 	$Background.visible = false

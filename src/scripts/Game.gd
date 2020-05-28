@@ -11,7 +11,7 @@ const DATA_PATH = "res://src/data/"
 var questions = "questions"
 
 func _ready():
- 	# print(load_data(questions))
+ #	print(load_data(questions))
 	load_bestscore()
 	pass # Replace with function body.
 

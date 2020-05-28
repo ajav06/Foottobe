@@ -352,6 +352,9 @@ margin_right = -98.0
 margin_bottom = 277.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource( 14 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="bck" type="TextureRect" parent="Question/Options/Option_1"]
 margin_right = 250.0
@@ -554,7 +557,7 @@ margin_bottom = 593.0
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
-text = "Back"
+text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
 }
