@@ -332,9 +332,9 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="lbl_question" type="Label" parent="Question/Question_Window"]
-margin_left = 312.0
+margin_left = 290.0
 margin_top = 203.0
-margin_right = 715.0
+margin_right = 693.0
 margin_bottom = 292.0
 align = 1
 valign = 1
@@ -375,6 +375,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button" type="Button" parent="Question/Options/Option_1"]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+
 [node name="Option_2" type="TextureButton" parent="Question/Options"]
 margin_left = -71.0
 margin_top = 193.0
@@ -403,6 +408,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button2" type="Button" parent="Question/Options/Option_2"]
+visible = false
+margin_left = -277.0
+margin_right = -265.0
+margin_bottom = 20.0
 
 [node name="Option_3" type="TextureButton" parent="Question/Options"]
 margin_left = -348.0
@@ -508,8 +519,6 @@ margin_left = 312.0
 margin_top = 203.0
 margin_right = 715.0
 margin_bottom = 292.0
-text = "¡Respuesta Correcta!
-Pase  a un jugador libre"
 align = 1
 valign = 1
 __meta__ = {
@@ -570,4 +579,3 @@ __meta__ = {
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
 [connection signal="pressed" from="Btn_Back" to="." method="_on_Btn_Back_pressed"]
-[connection signal="pressed" from="Btn_Next" to="." method="_on_Btn_Next_pressed"]

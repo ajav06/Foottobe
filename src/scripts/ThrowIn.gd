@@ -14,21 +14,18 @@ var numero_preguntas_nivel = 10
 var turno
 var user_ans
 
-# Cargamos nuestro fichero de preguntas en una variable
+# Cargamos nuestro fichero de preguntas en una variable.
 onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
 
 var respuesta_correcta
 
 # Arrays 
-var indices:Array = [] # Aquí almacenaremos todos los números de pregunta, las "key" del diccionario
-var verificadores:Array = [] # En este almacenaremos las casillas de check
-
+var indices:Array = [] # Aquí almacenaremos todos los números de pregunta, las "key" del diccionario.
 
 func _ready():
 	if preguntas_del_nivel.empty():
 		salir()
 	inicializar()
-#	_cambiar_saque()
 	time = "0:" + str(int($Timer.time_left))
 	score = "%03d" % GlobalVar.score
 	cards = "%02d" % GlobalVar.yellow_card
@@ -40,6 +37,10 @@ func inicializar():
 	if numero_preguntas_disponibles < numero_preguntas_nivel:
 		salir()
 	turno = 0
+
+	randomize() # Actualiza la semilla para generar aleatorios.
+	indices.shuffle() # Barajea aleatoriamente el array de indices.
+   
 	carga_pregunta()
 
 func _process(delta):
@@ -101,41 +102,44 @@ func _on_Option_1_pressed():
 	user_ans = 0
 	$Answer_Window.visible = true
 	$Question.visible = false
-#	$Btn_Next.visible = true
-	_prompt_if_correct()
+	$Btn_Back.visible = true
+	_prompt_if_pressed()
 	pass # Replace with function body.
 
 func _on_Option_2_pressed():
 	user_ans = 1
 	$Answer_Window.visible = true
 	$Question.visible = false
+	$Btn_Back.visible = true
 #	GlobalVar._aumentar_tarjeta()
-	_prompt_if_correct()
+	_prompt_if_pressed()
 	pass # Replace with function body.
 
 func _on_Option_3_pressed():
 	user_ans = 2
 	$Answer_Window.visible = true
 	$Question.visible = false
-#	GlobalVar._aumentar_tarjeta()
-	_prompt_if_correct()
+	$Btn_Back.visible = true
+	_prompt_if_pressed()
 	pass # Replace with function body.
 	
 func _on_Option_4_pressed():
 	user_ans = 3
 	$Answer_Window.visible = true
 	$Question.visible = false
-#	GlobalVar._aumentar_tarjeta()
-	_prompt_if_correct()
+	$Btn_Back.visible = true
+	_prompt_if_pressed()
 	pass # Replace with function body.
 
-func _prompt_if_correct():
+func _prompt_if_pressed():
 	if(user_ans==respuesta_correcta):
 		_aumentar_score()
 		print('it works')
+		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!."
 		#get_tree().reload_current_scene()
 	else:
 		GlobalVar._aumentar_tarjeta()
+		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!."
 		print('doesnt work')
 	 
 	# comprobamos si es el final del juego
@@ -159,7 +163,21 @@ func carga_pregunta():
 	# Asigna la pregunta almacenada en el índice correspondiente al turno en juego
 	var pregunta_actual = elige_pregunta(indices[turno])
 	
-	# print(pregunta_actual)
+
+	# creamos botones aleatorios
+#	var botones_random = $Question/Options.get_children()
+#	randomize() # actualizamos la semilla
+#	botones_random.shuffle() # barajamos los botones
+
+	
+	# actualizamos los nodos con los datos asignados
+#	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"] # La pregunta   
+#	botones_random[0].get_node("lbl").text = pregunta_actual["respA"]
+#	botones_random[1].get_node("lbl").text = pregunta_actual["respB"]
+#	botones_random[2].get_node("lbl").text = pregunta_actual["respC"]
+#	botones_random[3].get_node("lbl").text = pregunta_actual["respD"]
+	
+	
 	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
 	$Question/Options/Option_1/lbl.text = pregunta_actual["respA"]
 	$Question/Options/Option_2/lbl.text = pregunta_actual["respB"]
@@ -186,3 +204,6 @@ func _on_Btn_Next_pressed():
  
 func salir():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
+
+
+	
