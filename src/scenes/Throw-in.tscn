@@ -375,10 +375,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Question/Options/Option_1"]
+[node name="lbl_pos" type="Label" parent="Question/Options/Option_1"]
 visible = false
-margin_right = 12.0
-margin_bottom = 20.0
+margin_left = 38.0
+margin_top = 13.0
+margin_right = 208.0
+margin_bottom = 71.0
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Option_2" type="TextureButton" parent="Question/Options"]
 margin_left = -71.0
@@ -409,11 +417,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="Question/Options/Option_2"]
+[node name="lbl_pos" type="Label" parent="Question/Options/Option_2"]
 visible = false
-margin_left = -277.0
-margin_right = -265.0
-margin_bottom = 20.0
+margin_left = -239.0
+margin_top = 13.0
+margin_right = -69.0
+margin_bottom = 71.0
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Option_3" type="TextureButton" parent="Question/Options"]
 margin_left = -348.0
@@ -444,6 +459,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="lbl_pos" type="Label" parent="Question/Options/Option_3"]
+visible = false
+margin_left = 38.0
+margin_top = -87.0
+margin_right = 208.0
+margin_bottom = -29.0
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Option_4" type="TextureButton" parent="Question/Options"]
 margin_left = -71.0
 margin_top = 293.0
@@ -467,6 +495,19 @@ margin_left = 38.0
 margin_top = 13.0
 margin_right = 208.0
 margin_bottom = 71.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lbl_pos" type="Label" parent="Question/Options/Option_4"]
+visible = false
+margin_left = -239.0
+margin_top = -87.0
+margin_right = -69.0
+margin_bottom = -29.0
+text = "3"
 align = 1
 valign = 1
 __meta__ = {

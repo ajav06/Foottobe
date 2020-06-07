@@ -11,13 +11,13 @@ var score = null
 var cards = null
 
 var numero_preguntas_nivel = 10
-var turno
-var user_ans
+var turn
+#var user_ans 
 
 # Cargamos nuestro fichero de preguntas en una variable.
 onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
 
-var respuesta_correcta
+var correct_answer
 
 # Arrays 
 var indices:Array = [] # Aquí almacenaremos todos los números de pregunta, las "key" del diccionario.
@@ -36,11 +36,13 @@ func inicializar():
 
 	if numero_preguntas_disponibles < numero_preguntas_nivel:
 		salir()
-	turno = 0
+	turn = 0
 
-	randomize() # Actualiza la semilla para generar aleatorios.
-	indices.shuffle() # Barajea aleatoriamente el array de indices.
+#	randomize() # Actualiza la semilla para generar aleatorios.
+#	indices.shuffle() # Barajea aleatoriamente el array de indices.
    
+#	conectar_botones()
+#	option_pressed()
 	carga_pregunta()
 
 func _process(delta):
@@ -96,43 +98,30 @@ func _on_Btn_Question_pressed():
 func _on_Btn_home_pressed():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 	pass
-
+	
 func _on_Option_1_pressed():
-#	_aumentar_score()
-	user_ans = 0
-	$Answer_Window.visible = true
-	$Question.visible = false
-	$Btn_Back.visible = true
-	_prompt_if_pressed()
+	_prompt_if_pressed($Question/Options.get_child(0).get_meta("answer"))
 	pass # Replace with function body.
 
 func _on_Option_2_pressed():
-	user_ans = 1
-	$Answer_Window.visible = true
-	$Question.visible = false
-	$Btn_Back.visible = true
-#	GlobalVar._aumentar_tarjeta()
-	_prompt_if_pressed()
+	_prompt_if_pressed($Question/Options.get_child(1).get_meta("answer"))
 	pass # Replace with function body.
 
 func _on_Option_3_pressed():
-	user_ans = 2
-	$Answer_Window.visible = true
-	$Question.visible = false
-	$Btn_Back.visible = true
-	_prompt_if_pressed()
+	_prompt_if_pressed($Question/Options.get_child(2).get_meta("answer"))
 	pass # Replace with function body.
 	
 func _on_Option_4_pressed():
-	user_ans = 3
+	_prompt_if_pressed($Question/Options.get_child(3).get_meta("answer"))
+	
+
+func _prompt_if_pressed(user_ans):
+
 	$Answer_Window.visible = true
 	$Question.visible = false
 	$Btn_Back.visible = true
-	_prompt_if_pressed()
-	pass # Replace with function body.
 
-func _prompt_if_pressed():
-	if(user_ans==respuesta_correcta):
+	if(user_ans==correct_answer):
 		_aumentar_score()
 		print('it works')
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!."
@@ -143,12 +132,12 @@ func _prompt_if_pressed():
 		print('doesnt work')
 	 
 	# comprobamos si es el final del juego
-	if turno < numero_preguntas_nivel-1:
-		turno += 1 # pasamos a otra pregunta
+	if turn < numero_preguntas_nivel-1:
+		turn += 1 # pasamos a otra pregunta
 		get_tree().change_scene("")
 		carga_pregunta()
 	else:
-		print('F')
+		print('Game Over')
 
 func _on_Btn_Back_pressed():
 	$Background.visible = false
@@ -160,31 +149,61 @@ func _on_Btn_Back_pressed():
 	$Answer_Window.visible = false
 
 func carga_pregunta():
-	# Asigna la pregunta almacenada en el índice correspondiente al turno en juego
-	var pregunta_actual = elige_pregunta(indices[turno])
+	# Asigna la pregunta almacenada en el índice correspondiente al turn en juego
+	var pregunta_actual = elige_pregunta(indices[turn])
 	
 
 	# creamos botones aleatorios
-#	var botones_random = $Question/Options.get_children()
-#	randomize() # actualizamos la semilla
-#	botones_random.shuffle() # barajamos los botones
+	var botones_random = $Question/Options.get_children()
+	randomize() # actualizamos la semilla
+	botones_random.shuffle() # barajamos los botones
 
 	
 	# actualizamos los nodos con los datos asignados
-#	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"] # La pregunta   
-#	botones_random[0].get_node("lbl").text = pregunta_actual["respA"]
-#	botones_random[1].get_node("lbl").text = pregunta_actual["respB"]
-#	botones_random[2].get_node("lbl").text = pregunta_actual["respC"]
-#	botones_random[3].get_node("lbl").text = pregunta_actual["respD"]
+	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"] # La pregunta   
+	botones_random[0].get_node("lbl").text = pregunta_actual["respA"]
+	#botones_random[0] = int($Question/Options/Option_1/lbl_pos.text)
+	botones_random[0].set_meta("answer", 0)
+	print(botones_random[0])
+	botones_random[1].get_node("lbl").text = pregunta_actual["respB"]
+#	botones_random[1] = int($Question/Options/Option_2/lbl_pos.text)
+	botones_random[1].set_meta("answer", 1)
+	print(botones_random[1])
+	botones_random[2].get_node("lbl").text = pregunta_actual["respC"]
+	botones_random[2].set_meta("answer", 2)
+#	botones_random[2] = int($Question/Options/Option_3/lbl_pos.text)
+	print(botones_random[2])
+	botones_random[3].get_node("lbl").text = pregunta_actual["respD"]
+	botones_random[3].set_meta("answer", 3)
+#	botones_random[3] = int($Question/Options/Option_4/lbl_pos.text)
+	print(botones_random[3])
 	
+#	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
+#	$Question/Options/Option_1/lbl.text = pregunta_actual["respA"]
+#	$Question/Options/Option_2/lbl.text = pregunta_actual["respB"]
+#	$Question/Options/Option_3/lbl.text = pregunta_actual["respC"]
+#	$Question/Options/Option_4/lbl.text = pregunta_actual["respD"]
 	
-	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
-	$Question/Options/Option_1/lbl.text = pregunta_actual["respA"]
-	$Question/Options/Option_2/lbl.text = pregunta_actual["respB"]
-	$Question/Options/Option_3/lbl.text = pregunta_actual["respC"]
-	$Question/Options/Option_4/lbl.text = pregunta_actual["respD"]
-	
-	respuesta_correcta = pregunta_actual["buena"]
+	correct_answer = pregunta_actual["buena"]
+
+#func option_pressed():
+#	var a
+#	a =  int($Question/Options/Option_1/lbl_pos.text)
+#	print(a)
+#	if(a == 1):
+#		print('works')
+#	else:
+#		print('doesnt work')
+#	if(botones_random[0]):
+#		user_ans = 0
+#	elif(botones_random[1]):
+#		user_ans = 1
+#	elif(botones_random[2]):
+#		user_ans = 2
+#	elif(botones_random[3]):
+#		user_ans = 3
+#		print(user_ans)
+#	return user_ans		
 
 func elige_pregunta(id_pregunta:String):
 	# Comprobamos si el índice existe.
@@ -199,6 +218,14 @@ func contar_indices():
 	indices = preguntas_del_nivel.keys()
 	return indices.size() 
 
+
+#func connect_buttons():
+#	var buttons = $Question/Options.get_children() # Captura los hijos del nodo respuestas
+#	for button in buttons:
+#		if button is TextureButton: # Comprueba si cada hijo es del tipo Button
+#			# conectamos la señal PRESSED con la funcion AL_RESPONDER y pasamos el boton como parametro
+#			button.connect("pressed",self,"_prompt_if_pressed")
+			
 func _on_Btn_Next_pressed():
 	pass # Replace with function body.
  
