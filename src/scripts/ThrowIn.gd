@@ -17,12 +17,49 @@ var turn
 # Cargamos nuestro fichero de preguntas en una variable.
 onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
 onready var promt_tween=$Tween
-
 var correct_answer
-var answers
-var translations
+#var answers
+#var translations
 # Arrays 
 var indices:Array = [] # Aquí almacenaremos todos los números de pregunta, las "key" del diccionario.
+
+class Question:
+	var _answers = []
+	var _translations = []
+	var _correct_index = -1
+	var _shuffled = []
+
+	func _init(json_stuff):
+		_answers = json_stuff["answers"]
+		_translations = json_stuff["translations"]
+		_correct_index = json_stuff["correct"]
+		_shuffle()
+
+	func _shuffle():
+		_shuffled.clear()
+		for i in range(_answers.size()):
+			var entry = {}
+			entry["answer"] = _answers[i]
+			entry["translation"] = _translations[i]
+			entry["correct"] = i == _correct_index
+			_shuffled.append(entry)
+		_shuffled.shuffle()
+
+	func is_answer_correct(index):
+		return _shuffled[index]["correct"]
+
+	func get_shuffled_answer(index):
+		return _shuffled[index]["answer"]
+		
+	func get_shuffled_translation(index):
+		return _shuffled[index]["translation"]
+
+	func print_me():
+		print(_answers)
+		print(_translations)
+		print(_correct_index)
+		for i in range(_shuffled.size()):
+			print(_shuffled[i])
 
 func _ready():
 	if preguntas_del_nivel.empty():
@@ -214,134 +251,16 @@ func _on_Btn_Back_pressed():
 	$Answer_Window.visible = false
 
 func carga_pregunta():
-	var pregunta_actual = elige_pregunta(indices[turn])
-	var shuffled_indexes = []
-
-	#var json_data_template = dialog_json["Template"]
-
-	#var answers = json_data_template["answers"]
-	answers = pregunta_actual["answers"]
-	translations = pregunta_actual["translations"]
-
-	for i in range(answers.size()):
-		shuffled_indexes.append(i)
-	shuffled_indexes.shuffle()
-
-	var buttons = $Question/Options.get_children()
-	#var test1 =
-	#var translation = $Before_Answer/Opts.get_children()
-	for i in range(buttons.size()):
-		var shuf_index = shuffled_indexes[i]
-		buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
-		#buttons[0].get_node("translation").text = translations[shuf_index]
-		$Before_Answer/translation.text = translations[shuf_index]
-		#$Before_Answer/translation2.text = translations[shuf_index]
-		#$Before_Answer/translation3.text = translations[shuf_index]
-		#$Before_Answer/translation4.text = translations[shuf_index]
-
-
-		"""
-		print(i)
-		if(buttons[0]):
-			$Before_Answer/translation.text = translations[shuf_index]
-			$Before_Answer/translation.visible = true
-			print('hola')
-		elif(buttons[2]):
-			$Before_Answer/translation2.text = translations[shuf_index]
-			$Before_Answer/translatio2.visible = true
-			print('no')
-		elif(buttons[3]):
-			$Before_Answer/translation3.text = translations[shuf_index]
-			$Before_Answer/translation3.visible = true
-		elif(buttons[4]):
-			$Before_Answer/translation4.text = translations[shuf_index]
-			$Before_Answer/translation4.visible = true
-		else:
-			print('didnt work')
-			"""
-		#buttons[shuf_index].get_node("translation").text = translations[shuf_index]
-		#$Before_Answer/translation.text = translations[shuf_index]
-		#$Before_Answer/translation2.text = translations[shuf_index]
-		#$Before_Answer/translation3.text = translations[shuf_index]
-		#$Before_Answer/translation4.text = translations[shuf_index]
-		#buttons[shuf_index].get_node("translation").text = translations[shuf_index]
-		#test1[shuf_index].get_node("translation").text = translations[shuf_index]
-		#test1[shuf_index].get_node("translation2").text = translations[shuf_index]
-		#test1[shuf_index].get_node("translation3").text = translations[shuf_index]
-		#test1[shuf_index].get_node("translation4").text = translations[shuf_index]
-
-	#var test1 = $Before_Answer/translation.text
-	#var test1 =
-	#for i in range(test1.size()):
-	#	var shuf_index = shuffled_indexes[i]
-	#	buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
-		"""
-	var test = $Before_Answer.get_children()
-	for i in range(buttons.size()):
-		var shuf_index = shuffled_indexes[i]
-		#buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
-		buttons[shuf_index].get_node("translation").text = translations[shuf_index]
-		"""
-
-		"""
-	$Before_Answer/translation.text = pregunta_actual["translationA"]
-	var buttons = $Before_Answer/translation.text 
-	for i in range(buttons.size()):
-		var shuf_index = shuffled_indexes[i]
-		buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
-		"""
-
-	"""
-	# Asigna la pregunta almacenada en el índice correspondiente al turn en juego
-	var pregunta_actual = elige_pregunta(indices[turn])
 	
+	var pregunta_actual = elige_pregunta(indices[turn])
+	var question = Question.new(pregunta_actual)
+	#button1.set_text(question.get_shuffled_answer(0))
+	#button2.set_text(question.get_shuffled_answer(1))
+	question.print_me()
+	#var shuffled_indexes = []
 
-	# creamos botones aleatorios
-	var botones_random = $Question/Options.get_children()
-	randomize() # actualizamos la semilla
-	botones_random.shuffle() # barajamos los botones
-	"""
-
-	"""
-	# actualizamos los nodos con los datos asignados
-	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"] # La pregunta   
-	botones_random[0].get_node("lbl").text = pregunta_actual["respA"]
-	#botones_random[0] = int($Question/Options/Option_1/lbl_pos.text)
-	botones_random[0].set_meta("answer", 0)
-	#botones_random[0].get_node("lbl").text = pregunta_actual["respA"]
-	print(botones_random[0])
-	botones_random[1].get_node("lbl").text = pregunta_actual["respB"]
-#	botones_random[1] = int($Question/Options/Option_2/lbl_pos.text)
-	botones_random[1].set_meta("answer", 1)
-	print(botones_random[1])
-	botones_random[2].get_node("lbl").text = pregunta_actual["respC"]
-	botones_random[2].set_meta("answer", 2)
-#	botones_random[2] = int($Question/Options/Option_3/lbl_pos.text)
-	print(botones_random[2])
-	botones_random[3].get_node("lbl").text = pregunta_actual["respD"]
-	botones_random[3].set_meta("answer", 3)
-#	botones_random[3] = int($Question/Options/Option_4/lbl_pos.text)
-	print(botones_random[3])
-	"""
-#	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
-#	$Question/Options/Option_1/lbl.text = pregunta_actual["respA"]
-#	$Question/Options/Option_2/lbl.text = pregunta_actual["respB"]
-#	$Question/Options/Option_3/lbl.text = pregunta_actual["respC"]
-#	$Question/Options/Option_4/lbl.text = pregunta_actual["respD"]
-	
-	#correct_answer = pregunta_actual["buena"]
-	#translation_c_answer = pregunta_actual["translationA"]
-	#$Before_Answer/translation.text = pregunta_actual["translationA"]
-	"""
-	if(botones_random[0]):
-		$Before_Answer/translation.text = pregunta_actual["translationA"]
-	elif(botones_random[1]):
-		$Before_Answer/translation.text = pregunta_actual["translationB"]
-	elif(botones_random[2]):
-		$Before_Answer/translation.text = pregunta_actual["translationC"]
-	elif(botones_random[3]):
-		$Before_Answer/translation.text = pregunta_actual["translationD"]
-		"""
+	#answers = pregunta_actual["answers"]
+	#translations = pregunta_actual["translations"]
 
 
 func elige_pregunta(id_pregunta:String):
