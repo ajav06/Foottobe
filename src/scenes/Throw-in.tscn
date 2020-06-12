@@ -328,6 +328,7 @@ __meta__ = {
 }
 
 [node name="Answer_Window" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
