@@ -108,6 +108,7 @@ func _on_Option_4_pressed():
 	
 func _prompt_and_check():
 	$Before_Answer.visible = true
+	$Btn_Back.visible = false
 
 func _on_Btn_No_pressed():
 	$Before_Answer.visible = false
@@ -124,6 +125,7 @@ func _on_Btn_Yes_pressed():
 	if(user_ans==correct_answer):
 		$Before_Answer.visible = false
 		$Answer_Window.visible = true
+		$Btn_Back.visible = false
 		_aumentar_score()
 		print('it works')
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!."
@@ -131,6 +133,7 @@ func _on_Btn_Yes_pressed():
 	else:
 		$Before_Answer.visible = false
 		$Answer_Window.visible = true
+		$Btn_Back.visible = false
 		GlobalVar._aumentar_tarjeta()
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!."
 		print('doesnt work')
@@ -181,7 +184,8 @@ func carga_pregunta():
 	
 	correct_answer = pregunta_actual["buena"]
 	#translation_c_answer = pregunta_actual["translationA"]
-	#$Before_Answer/translation.text = pregunta_actual["translation"]
+	$Before_Answer/translation.text = pregunta_actual["translation"]
+	#$Answer_Window/translation.text = pregunta_actual["translation"]
 func elige_pregunta(id_pregunta:String):
 	# Comprobamos si el índice existe.
 	if preguntas_del_nivel.has(id_pregunta):
