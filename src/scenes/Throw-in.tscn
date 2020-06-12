@@ -25,7 +25,7 @@ scale = Vector2( 1.00098, 0.980392 )
 texture = ExtResource( 7 )
 
 [node name="Players" type="Sprite" parent="."]
-position = Vector2( 512, 301 )
+position = Vector2( 513, 301 )
 texture = ExtResource( 15 )
 
 [node name="Player-Throw" type="TextureRect" parent="."]
@@ -356,6 +356,12 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="translation" type="Label" parent="Question/Options/Option_1"]
+margin_left = 348.0
+margin_top = -193.0
+margin_right = 388.0
+margin_bottom = -159.0
+
 [node name="bck" type="TextureRect" parent="Question/Options/Option_1"]
 margin_right = 250.0
 margin_bottom = 84.0
@@ -397,6 +403,12 @@ theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="translation" type="Label" parent="Question/Options/Option_2"]
+margin_left = 71.0
+margin_top = -193.0
+margin_right = 111.0
+margin_bottom = -159.0
 
 [node name="bck" type="TextureRect" parent="Question/Options/Option_2"]
 margin_right = 250.0
@@ -440,6 +452,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="translation" type="Label" parent="Question/Options/Option_3"]
+margin_left = 348.0
+margin_top = -293.0
+margin_right = 388.0
+margin_bottom = -259.0
+
 [node name="bck" type="TextureRect" parent="Question/Options/Option_3"]
 margin_right = 250.0
 margin_bottom = 84.0
@@ -482,6 +500,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="translation" type="Label" parent="Question/Options/Option_4"]
+margin_left = 71.0
+margin_top = -293.0
+margin_right = 111.0
+margin_bottom = -259.0
+
 [node name="bck" type="TextureRect" parent="Question/Options/Option_4"]
 margin_right = 250.0
 margin_bottom = 84.0
@@ -514,6 +538,161 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Before_Answer" type="Control" parent="."]
+visible = false
+
+[node name="Opts" type="Node2D" parent="Before_Answer"]
+
+[node name="Background2" type="TextureRect" parent="Before_Answer"]
+margin_left = 214.0
+margin_top = 132.0
+margin_right = 821.0
+margin_bottom = 412.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="msg2" type="Label" parent="Before_Answer"]
+margin_left = 435.0
+margin_top = 245.0
+margin_right = 585.0
+margin_bottom = 288.0
+theme = ExtResource( 9 )
+text = "¿Seguro?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes" type="TextureButton" parent="Before_Answer"]
+visible = false
+margin_left = 249.0
+margin_top = 317.0
+margin_right = 491.0
+margin_bottom = 391.0
+theme = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yes_label" type="Label" parent="Before_Answer"]
+visible = false
+margin_left = 255.0
+margin_top = 297.0
+margin_right = 463.0
+margin_bottom = 386.0
+text = "SI"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no" type="TextureButton" parent="Before_Answer"]
+visible = false
+margin_left = 541.0
+margin_top = 317.0
+margin_right = 783.0
+margin_bottom = 391.0
+theme = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="no_label" type="Label" parent="Before_Answer"]
+visible = false
+margin_left = 553.462
+margin_top = 306.047
+margin_right = 761.462
+margin_bottom = 395.047
+text = "NO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt" type="Node2D" parent="Before_Answer"]
+
+[node name="Btn_Yes" type="Button" parent="Before_Answer/Opt"]
+margin_left = 272.379
+margin_top = 303.393
+margin_right = 450.379
+margin_bottom = 387.393
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_No" type="Button" parent="Before_Answer/Opt"]
+margin_left = 567.036
+margin_top = 307.27
+margin_right = 745.036
+margin_bottom = 391.27
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="translation" type="Label" parent="Before_Answer"]
+margin_left = 398.0
+margin_top = 181.0
+margin_right = 548.0
+margin_bottom = 224.0
+theme = ExtResource( 9 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="translation2" type="Label" parent="Before_Answer"]
+margin_left = 398.0
+margin_top = 181.0
+margin_right = 548.0
+margin_bottom = 224.0
+theme = ExtResource( 9 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="translation3" type="Label" parent="Before_Answer"]
+margin_left = 398.0
+margin_top = 181.0
+margin_right = 548.0
+margin_bottom = 224.0
+theme = ExtResource( 9 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="translation4" type="Label" parent="Before_Answer"]
+margin_left = 398.0
+margin_top = 181.0
+margin_right = 548.0
+margin_bottom = 224.0
+theme = ExtResource( 9 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
 [node name="Answer_Window" type="Control" parent="."]
 visible = false
 margin_right = 40.0
@@ -534,7 +713,7 @@ __meta__ = {
 }
 
 [node name="msg" type="Label" parent="Answer_Window"]
-margin_left = 597.0
+margin_left = 366.0
 margin_top = 114.0
 margin_right = 639.0
 margin_bottom = 157.0
@@ -572,9 +751,9 @@ one_shot = true
 autostart = true
 
 [node name="Btn_Question" type="Button" parent="."]
-margin_left = 423.0
+margin_left = 421.0
 margin_top = 505.0
-margin_right = 601.0
+margin_right = 599.0
 margin_bottom = 589.0
 focus_mode = 0
 theme = ExtResource( 9 )
@@ -616,6 +795,8 @@ __meta__ = {
 [connection signal="pressed" from="Question/Options/Option_2" to="." method="_on_Option_2_pressed"]
 [connection signal="pressed" from="Question/Options/Option_3" to="." method="_on_Option_3_pressed"]
 [connection signal="pressed" from="Question/Options/Option_4" to="." method="_on_Option_4_pressed"]
+[connection signal="pressed" from="Before_Answer/Opt/Btn_Yes" to="." method="_on_Btn_Yes_pressed"]
+[connection signal="pressed" from="Before_Answer/Opt/Btn_No" to="." method="_on_Btn_No_pressed"]
 [connection signal="pressed" from="Answer_Window/proceed" to="." method="_on_Option_1_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
