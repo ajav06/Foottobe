@@ -274,27 +274,27 @@ __meta__ = {
 }
 
 [node name="Btn_Yes" type="Button" parent="Before_Answer"]
-margin_left = 423.0
-margin_top = 513.0
-margin_right = 601.0
-margin_bottom = 587.0
+margin_left = 297.997
+margin_top = 301.496
+margin_right = 475.997
+margin_bottom = 375.496
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
-text = "Back"
+text = "Yes"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Btn_No" type="Button" parent="Before_Answer"]
-margin_left = 423.0
-margin_top = 513.0
-margin_right = 601.0
-margin_bottom = 587.0
+margin_left = 566.857
+margin_top = 300.496
+margin_right = 744.857
+margin_bottom = 374.496
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
-text = "Back"
+text = "No"
 __meta__ = {
 "_edit_use_anchors_": false
 }
