@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://src/images/Fondo Question.png" type="Texture" id=1]
 [ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=3]
 [ext_resource path="res://src/scripts/ThrowIn.gd" type="Script" id=6]
 [ext_resource path="res://src/images/Background - 6.png" type="Texture" id=7]
@@ -255,6 +256,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="TextureRect" parent="Before_Anwer"]
+margin_left = 193.782
+margin_top = 28.1903
+margin_right = 841.782
+margin_bottom = 522.19
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Btn_Yes" type="Button" parent="Before_Anwer"]
 visible = false
 margin_left = 423.0
@@ -284,11 +295,66 @@ __meta__ = {
 }
 
 [node name="msg2" type="Label" parent="Before_Anwer"]
-margin_left = 312.0
-margin_top = 131.0
-margin_right = 715.0
-margin_bottom = 220.0
+margin_left = 319.16
+margin_top = 185.415
+margin_right = 722.16
+margin_bottom = 274.415
 text = "¿Seguro?
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="translation" type="Label" parent="Before_Anwer"]
+margin_left = 317.728
+margin_top = 98.0646
+margin_right = 720.728
+margin_bottom = 187.065
+text = "Pase a un jugador libre"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer_Window" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Answer_Window"]
+margin_left = 194.0
+margin_top = 28.0
+margin_right = 842.0
+margin_bottom = 522.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="proceed_label" type="Label" parent="Answer_Window"]
+margin_left = 319.16
+margin_top = 185.415
+margin_right = 722.16
+margin_bottom = 274.415
+text = "
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="translation" type="Label" parent="Answer_Window"]
+margin_left = 317.728
+margin_top = 98.0646
+margin_right = 720.728
+margin_bottom = 187.065
+text = "Pase a un jugador libre
 "
 align = 1
 valign = 1
