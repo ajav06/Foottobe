@@ -19,7 +19,8 @@ onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
 onready var promt_tween=$Tween
 
 var correct_answer
-
+var answers
+var translations
 # Arrays 
 var indices:Array = [] # Aquí almacenaremos todos los números de pregunta, las "key" del diccionario.
 
@@ -102,25 +103,21 @@ func _on_Btn_home_pressed():
 	pass
 	
 func _on_Option_1_pressed():
-	#$Before_Answer.visible = true
 	user_ans = $Question/Options.get_child(0).get_meta("answer")
 	_prompt_and_check()
 	pass # Replace with function body.
 
 func _on_Option_2_pressed():
-	#$Before_Answer.visible = true
 	user_ans = $Question/Options.get_child(1).get_meta("answer")
 	_prompt_and_check()
 	pass # Replace with function body.
 
 func _on_Option_3_pressed():
-	#$Before_Answer.visible = true
 	user_ans = $Question/Options.get_child(2).get_meta("answer")
 	_prompt_and_check()
 	pass # Replace with function body.
 	
 func _on_Option_4_pressed():
-	#$Before_Answer.visible = true
 	user_ans = $Question/Options.get_child(3).get_meta("answer")
 	_prompt_and_check()
 	
@@ -148,9 +145,8 @@ func _on_Btn_Yes_pressed():
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!."
 		print('doesnt work')
 	 
-	# comprobamos si es el final del juego
 	if turn < numero_preguntas_nivel-1:
-		turn += 1 # pasamos a otra pregunta
+		turn += 1 # 
 		get_tree().change_scene("")
 		carga_pregunta()
 	else:
@@ -161,6 +157,7 @@ func _on_Btn_No_pressed():
 	$Before_Answer.visible = false
 	$Answer_Window.visible = false
 	$Question.visible = true
+	#$Before_Answer/translation.text = ''
 	pass # Replace with function body.
 	
 	"""
@@ -217,6 +214,84 @@ func _on_Btn_Back_pressed():
 	$Answer_Window.visible = false
 
 func carga_pregunta():
+	var pregunta_actual = elige_pregunta(indices[turn])
+	var shuffled_indexes = []
+
+	#var json_data_template = dialog_json["Template"]
+
+	#var answers = json_data_template["answers"]
+	answers = pregunta_actual["answers"]
+	translations = pregunta_actual["translations"]
+
+	for i in range(answers.size()):
+		shuffled_indexes.append(i)
+	shuffled_indexes.shuffle()
+
+	var buttons = $Question/Options.get_children()
+	#var test1 =
+	#var translation = $Before_Answer/Opts.get_children()
+	for i in range(buttons.size()):
+		var shuf_index = shuffled_indexes[i]
+		buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
+		#buttons[0].get_node("translation").text = translations[shuf_index]
+		$Before_Answer/translation.text = translations[shuf_index]
+		#$Before_Answer/translation2.text = translations[shuf_index]
+		#$Before_Answer/translation3.text = translations[shuf_index]
+		#$Before_Answer/translation4.text = translations[shuf_index]
+
+
+		"""
+		print(i)
+		if(buttons[0]):
+			$Before_Answer/translation.text = translations[shuf_index]
+			$Before_Answer/translation.visible = true
+			print('hola')
+		elif(buttons[2]):
+			$Before_Answer/translation2.text = translations[shuf_index]
+			$Before_Answer/translatio2.visible = true
+			print('no')
+		elif(buttons[3]):
+			$Before_Answer/translation3.text = translations[shuf_index]
+			$Before_Answer/translation3.visible = true
+		elif(buttons[4]):
+			$Before_Answer/translation4.text = translations[shuf_index]
+			$Before_Answer/translation4.visible = true
+		else:
+			print('didnt work')
+			"""
+		#buttons[shuf_index].get_node("translation").text = translations[shuf_index]
+		#$Before_Answer/translation.text = translations[shuf_index]
+		#$Before_Answer/translation2.text = translations[shuf_index]
+		#$Before_Answer/translation3.text = translations[shuf_index]
+		#$Before_Answer/translation4.text = translations[shuf_index]
+		#buttons[shuf_index].get_node("translation").text = translations[shuf_index]
+		#test1[shuf_index].get_node("translation").text = translations[shuf_index]
+		#test1[shuf_index].get_node("translation2").text = translations[shuf_index]
+		#test1[shuf_index].get_node("translation3").text = translations[shuf_index]
+		#test1[shuf_index].get_node("translation4").text = translations[shuf_index]
+
+	#var test1 = $Before_Answer/translation.text
+	#var test1 =
+	#for i in range(test1.size()):
+	#	var shuf_index = shuffled_indexes[i]
+	#	buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
+		"""
+	var test = $Before_Answer.get_children()
+	for i in range(buttons.size()):
+		var shuf_index = shuffled_indexes[i]
+		#buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
+		buttons[shuf_index].get_node("translation").text = translations[shuf_index]
+		"""
+
+		"""
+	$Before_Answer/translation.text = pregunta_actual["translationA"]
+	var buttons = $Before_Answer/translation.text 
+	for i in range(buttons.size()):
+		var shuf_index = shuffled_indexes[i]
+		buttons[shuf_index].get_node("lbl").text = answers[shuf_index]
+		"""
+
+	"""
 	# Asigna la pregunta almacenada en el índice correspondiente al turn en juego
 	var pregunta_actual = elige_pregunta(indices[turn])
 	
@@ -225,8 +300,9 @@ func carga_pregunta():
 	var botones_random = $Question/Options.get_children()
 	randomize() # actualizamos la semilla
 	botones_random.shuffle() # barajamos los botones
+	"""
 
-	
+	"""
 	# actualizamos los nodos con los datos asignados
 	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"] # La pregunta   
 	botones_random[0].get_node("lbl").text = pregunta_actual["respA"]
@@ -246,16 +322,16 @@ func carga_pregunta():
 	botones_random[3].set_meta("answer", 3)
 #	botones_random[3] = int($Question/Options/Option_4/lbl_pos.text)
 	print(botones_random[3])
-	
+	"""
 #	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
 #	$Question/Options/Option_1/lbl.text = pregunta_actual["respA"]
 #	$Question/Options/Option_2/lbl.text = pregunta_actual["respB"]
 #	$Question/Options/Option_3/lbl.text = pregunta_actual["respC"]
 #	$Question/Options/Option_4/lbl.text = pregunta_actual["respD"]
 	
-	correct_answer = pregunta_actual["buena"]
+	#correct_answer = pregunta_actual["buena"]
 	#translation_c_answer = pregunta_actual["translationA"]
-	$Before_Answer/translation.text = pregunta_actual["translationA"]
+	#$Before_Answer/translation.text = pregunta_actual["translationA"]
 	"""
 	if(botones_random[0]):
 		$Before_Answer/translation.text = pregunta_actual["translationA"]
