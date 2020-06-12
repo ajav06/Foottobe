@@ -128,14 +128,14 @@ func _on_Btn_Yes_pressed():
 		$Btn_Back.visible = false
 		_aumentar_score()
 		print('it works')
-		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!."
+		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!"
 		#get_tree().reload_current_scene()
 	else:
 		$Before_Answer.visible = false
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		GlobalVar._aumentar_tarjeta()
-		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!."
+		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!"
 		print('doesnt work')
 	 
 	if turn < numero_preguntas_nivel-1:

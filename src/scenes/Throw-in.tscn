@@ -16,7 +16,6 @@
 script = ExtResource( 6 )
 
 [node name="Backgroun" type="Sprite" parent="."]
-visible = false
 position = Vector2( 512, 300 )
 texture = ExtResource( 7 )
 
@@ -264,9 +263,9 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="Before_Answer"]
-margin_left = 242.0
+margin_left = 214.0
 margin_top = 170.0
-margin_right = 850.498
+margin_right = 822.498
 margin_bottom = 459.052
 texture = ExtResource( 4 )
 expand = true
@@ -275,10 +274,10 @@ __meta__ = {
 }
 
 [node name="Btn_Yes" type="Button" parent="Before_Answer"]
-margin_left = 296.097
-margin_top = 340.446
-margin_right = 474.097
-margin_bottom = 414.446
+margin_left = 270.047
+margin_top = 341.396
+margin_right = 448.047
+margin_bottom = 415.396
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
@@ -288,9 +287,9 @@ __meta__ = {
 }
 
 [node name="Btn_No" type="Button" parent="Before_Answer"]
-margin_left = 621.007
+margin_left = 593.007
 margin_top = 342.296
-margin_right = 799.007
+margin_right = 771.007
 margin_bottom = 416.296
 focus_mode = 0
 theme = ExtResource( 9 )
@@ -301,9 +300,9 @@ __meta__ = {
 }
 
 [node name="msg2" type="Label" parent="Before_Answer"]
-margin_left = 340.058
+margin_left = 316.358
 margin_top = 253.811
-margin_right = 743.058
+margin_right = 719.358
 margin_bottom = 342.811
 theme = ExtResource( 14 )
 text = "¿Seguro?
@@ -315,10 +314,10 @@ __meta__ = {
 }
 
 [node name="translation" type="Label" parent="Before_Answer"]
-margin_left = 339.1
-margin_top = 183.875
-margin_right = 742.1
-margin_bottom = 272.875
+margin_left = 321.1
+margin_top = 182.925
+margin_right = 724.1
+margin_bottom = 271.925
 theme = ExtResource( 14 )
 text = "Pase a un jugador libre"
 align = 1
@@ -336,20 +335,20 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="Answer_Window"]
-margin_left = 262.55
-margin_top = 147.0
-margin_right = 802.55
-margin_bottom = 407.0
+margin_left = 239.3
+margin_top = 144.15
+margin_right = 779.3
+margin_bottom = 404.15
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="proceed_label" type="Label" parent="Answer_Window"]
-margin_left = 323.91
-margin_top = 263.315
-margin_right = 726.91
-margin_bottom = 352.315
+margin_left = 322.96
+margin_top = 258.565
+margin_right = 725.96
+margin_bottom = 347.565
 theme = ExtResource( 14 )
 text = "
 "
@@ -360,10 +359,10 @@ __meta__ = {
 }
 
 [node name="translation" type="Label" parent="Answer_Window"]
-margin_left = 333.878
-margin_top = 179.765
-margin_right = 736.878
-margin_bottom = 268.765
+margin_left = 302.528
+margin_top = 155.065
+margin_right = 705.528
+margin_bottom = 244.065
 theme = ExtResource( 14 )
 text = "Pase a un jugador libre"
 align = 1
