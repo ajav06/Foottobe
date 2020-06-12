@@ -1,19 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://src/images/player-1.png" type="Texture" id=1]
 [ext_resource path="res://src/images/soccer-throw-player.png" type="Texture" id=2]
 [ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=3]
-[ext_resource path="res://src/images/star.png" type="Texture" id=4]
-[ext_resource path="res://src/images/player-2.png" type="Texture" id=5]
 [ext_resource path="res://src/scripts/ThrowIn.gd" type="Script" id=6]
-[ext_resource path="res://src/images/Campo-valla.png" type="Texture" id=7]
+[ext_resource path="res://src/images/Background - 6.png" type="Texture" id=7]
 [ext_resource path="res://src/images/yellow-card.png" type="Texture" id=8]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=9]
-[ext_resource path="res://src/images/Fondo Question.png" type="Texture" id=10]
 [ext_resource path="res://src/images/home-small.png" type="Texture" id=12]
 [ext_resource path="res://src/images/Pregunta.png" type="Texture" id=13]
 [ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=14]
-[ext_resource path="res://src/images/Campo-player.png" type="Texture" id=15]
+[ext_resource path="res://src/images/Background - 5.png" type="Texture" id=15]
 
 [node name="Throw-in" type="Node2D"]
 script = ExtResource( 6 )
@@ -21,11 +17,10 @@ script = ExtResource( 6 )
 [node name="Backgroun" type="Sprite" parent="."]
 visible = false
 position = Vector2( 512, 300 )
-scale = Vector2( 1.00098, 0.980392 )
 texture = ExtResource( 7 )
 
 [node name="Players" type="Sprite" parent="."]
-position = Vector2( 512, 301 )
+position = Vector2( 512, 300 )
 texture = ExtResource( 15 )
 
 [node name="Player-Throw" type="TextureRect" parent="."]
@@ -40,137 +35,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player 1" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-1_1" type="TextureRect" parent="Player 1"]
-margin_left = 339.0
-margin_top = 101.26
-margin_right = 434.0
-margin_bottom = 406.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-2_2" type="TextureRect" parent="Player 1"]
-margin_left = 548.95
-margin_top = 101.26
-margin_right = 643.95
-margin_bottom = 406.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-1_3" type="TextureRect" parent="Player 1"]
-margin_left = 244.0
-margin_top = 255.26
-margin_right = 339.0
-margin_bottom = 560.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-2_4" type="TextureRect" parent="Player 1"]
-margin_left = 482.0
-margin_top = 219.26
-margin_right = 577.0
-margin_bottom = 524.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player 2" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-2_1" type="TextureRect" parent="Player 2"]
-margin_left = 359.95
-margin_top = 129.26
-margin_right = 454.95
-margin_bottom = 434.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-1_2" type="TextureRect" parent="Player 2"]
-margin_left = 568.0
-margin_top = 138.26
-margin_right = 663.0
-margin_bottom = 443.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-2_3" type="TextureRect" parent="Player 2"]
-margin_left = 287.95
-margin_top = 315.26
-margin_right = 382.95
-margin_bottom = 620.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Player-1_4" type="TextureRect" parent="Player 2"]
-margin_left = 502.95
-margin_top = 247.26
-margin_right = 597.95
-margin_bottom = 552.26
-rect_scale = Vector2( 0.38, 0.38 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Footer" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Star" type="TextureRect" parent="Footer"]
-margin_left = 80.0
-margin_top = 506.0
-margin_right = 592.0
-margin_bottom = 1018.0
-rect_scale = Vector2( 0.07, 0.07 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="Footer"]
-margin_left = 120.0
-margin_top = 507.0
-margin_right = 183.0
-margin_bottom = 550.0
-text = "100"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,9 +57,9 @@ __meta__ = {
 
 [node name="Card" type="Label" parent="Footer"]
 margin_left = 128.0
-margin_top = 547.0
+margin_top = 525.0
 margin_right = 170.0
-margin_bottom = 590.0
+margin_bottom = 568.0
 text = "01"
 align = 1
 valign = 1
@@ -201,10 +69,10 @@ __meta__ = {
 
 [node name="Yellow-card" type="TextureRect" parent="Footer"]
 margin_left = 88.0
-margin_top = 557.0
+margin_top = 532.0
 margin_right = 323.0
-margin_bottom = 871.0
-rect_scale = Vector2( 0.09, 0.09 )
+margin_bottom = 846.0
+rect_scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -232,80 +100,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="TextureRect" parent="Question"]
-margin_left = 189.0
-margin_top = 18.0
-margin_right = 836.0
-margin_bottom = 490.0
-texture = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Star" type="TextureRect" parent="Question"]
-margin_left = 290.0
-margin_top = 93.0
-margin_right = 802.0
-margin_bottom = 605.0
-rect_scale = Vector2( 0.15, 0.2 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="lbl_score" type="Label" parent="Question"]
-margin_left = 292.0
-margin_top = 26.0
-margin_right = 365.0
-margin_bottom = 60.0
-text = "Score"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Yellow-card" type="TextureRect" parent="Question"]
-margin_left = 673.0
-margin_top = 100.0
-margin_right = 908.0
-margin_bottom = 414.0
-rect_scale = Vector2( 0.3, 0.31 )
+margin_left = 664.0
+margin_top = 39.0
+margin_right = 899.0
+margin_bottom = 353.0
+rect_scale = Vector2( 0.13, 0.13 )
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lbl_cards" type="Label" parent="Question"]
-margin_left = 665.0
-margin_top = 26.0
-margin_right = 744.0
-margin_bottom = 60.0
-text = "Cards"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Score" type="Label" parent="Question"]
-margin_left = 381.0
-margin_top = 114.0
-margin_right = 444.0
-margin_bottom = 157.0
-theme = ExtResource( 9 )
-text = "100"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Time" type="Label" parent="Question"]
-margin_left = 463.0
-margin_top = 67.0
-margin_right = 561.0
-margin_bottom = 110.0
+margin_left = 325.0
+margin_top = 40.0
+margin_right = 423.0
+margin_bottom = 83.0
 theme = ExtResource( 9 )
 text = "00:30"
 align = 1
@@ -315,10 +125,10 @@ __meta__ = {
 }
 
 [node name="Card" type="Label" parent="Question"]
-margin_left = 597.0
-margin_top = 114.0
-margin_right = 639.0
-margin_bottom = 157.0
+margin_left = 609.0
+margin_top = 40.0
+margin_right = 651.0
+margin_bottom = 83.0
 theme = ExtResource( 9 )
 text = "01"
 align = 1
@@ -329,9 +139,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Question"]
 margin_left = 312.0
-margin_top = 203.0
+margin_top = 131.0
 margin_right = 715.0
-margin_bottom = 292.0
+margin_bottom = 220.0
 text = "What you should do in this
 situation? Throw in"
 align = 1
@@ -342,9 +152,9 @@ __meta__ = {
 
 [node name="Option_1" type="TextureButton" parent="Question"]
 margin_left = 249.0
-margin_top = 307.0
+margin_top = 269.0
 margin_right = 499.0
-margin_bottom = 391.0
+margin_bottom = 353.0
 theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -371,9 +181,9 @@ __meta__ = {
 
 [node name="Option_2" type="TextureButton" parent="Question"]
 margin_left = 526.0
-margin_top = 307.0
+margin_top = 269.0
 margin_right = 776.0
-margin_bottom = 391.0
+margin_bottom = 353.0
 theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -400,9 +210,9 @@ __meta__ = {
 
 [node name="Option_3" type="TextureButton" parent="Question"]
 margin_left = 249.0
-margin_top = 407.0
+margin_top = 369.0
 margin_right = 499.0
-margin_bottom = 491.0
+margin_bottom = 453.0
 theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -429,9 +239,9 @@ __meta__ = {
 
 [node name="Option_4" type="TextureButton" parent="Question"]
 margin_left = 526.0
-margin_top = 407.0
+margin_top = 369.0
 margin_right = 776.0
-margin_bottom = 491.0
+margin_bottom = 453.0
 theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -477,9 +287,9 @@ __meta__ = {
 [node name="Btn_Back" type="Button" parent="."]
 visible = false
 margin_left = 423.0
-margin_top = 519.0
+margin_top = 513.0
 margin_right = 601.0
-margin_bottom = 593.0
+margin_bottom = 587.0
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0

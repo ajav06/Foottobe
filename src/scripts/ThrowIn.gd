@@ -6,13 +6,11 @@ var tipos_saques = ["Pass the ball to\nany teanmate",
 					"Run up the\nclock",
 					"Pass to a free\nplayer"]
 var time = null
-var score = null
 var cards = null
 
 func _ready():
 	_cambiar_saque()
 	time = "0:" + str(int($Timer.time_left))
-	score = "%03d" % GlobalVar.score
 	cards = "%02d" % GlobalVar.yellow_card
 	_assign_text()
 
@@ -25,7 +23,6 @@ func _process(delta):
 		get_tree().change_scene("res://src/scenes/Main.tscn")
 	
 	time = "00:%02d" % int($Timer.time_left)
-	score = "%03d" % GlobalVar.score
 	cards = "%02d" % GlobalVar.yellow_card
 	_assign_text()
 
@@ -46,11 +43,9 @@ func _aumentar_score():
 
 func _assign_text():
 	$Footer/Time.text = time
-	$Footer/Score.text = score
 	$Footer/Card.text = cards
 	
 	$Question/Time.text = time
-	$Question/Score.text = score
 	$Question/Card.text = cards
 
 

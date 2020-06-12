@@ -1,30 +1,27 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/images/cog-solid-small.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=2]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=3]
 [ext_resource path="res://src/images/search-solid-small.png" type="Texture" id=4]
-[ext_resource path="res://src/images/star.png" type="Texture" id=5]
+[ext_resource path="res://src/images/balon-futbol-blanco.png" type="Texture" id=5]
 [ext_resource path="res://src/images/Cards.png" type="Texture" id=6]
-[ext_resource path="res://src/images/Fondo - Main.jpg" type="Texture" id=7]
+[ext_resource path="res://src/images/Background - 2.png" type="Texture" id=7]
 [ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=8]
 [ext_resource path="res://src/images/exit-small.png" type="Texture" id=9]
-[ext_resource path="res://src/images/Fondo Main.png" type="Texture" id=10]
-[ext_resource path="res://src/images/Fondo Title.png" type="Texture" id=11]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 513, 303 )
-scale = Vector2( 1.64, 1.64 )
+position = Vector2( 512, 300 )
 texture = ExtResource( 7 )
 
 [node name="Play" type="Button" parent="."]
-margin_left = 423.0
-margin_top = 465.0
-margin_right = 601.0
-margin_bottom = 549.0
+margin_left = 409.0
+margin_top = 498.0
+margin_right = 616.0
+margin_bottom = 578.0
 focus_mode = 0
 theme = ExtResource( 3 )
 enabled_focus_mode = 0
@@ -35,9 +32,9 @@ __meta__ = {
 
 [node name="Btn_small" type="Control" parent="."]
 margin_left = 93.0
-margin_top = 488.0
+margin_top = 520.0
 margin_right = 133.0
-margin_bottom = 528.0
+margin_bottom = 560.0
 theme = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,30 +75,10 @@ __meta__ = {
 
 [node name="Home" type="Control" parent="."]
 margin_left = 506.0
-margin_top = 287.0
+margin_top = 261.0
 margin_right = 546.0
-margin_bottom = 327.0
+margin_bottom = 301.0
 theme = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="TextureRect" parent="Home"]
-margin_left = -115.0
-margin_top = -134.0
-margin_right = 127.0
-margin_bottom = 144.0
-texture = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bck_Title" type="TextureRect" parent="Home"]
-margin_left = -130.0
-margin_top = -162.0
-margin_right = 142.0
-margin_bottom = -113.0
-texture = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,12 +132,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="TextureRect" parent="Home"]
+[node name="Ball" type="TextureRect" parent="Home"]
 margin_left = -40.0
 margin_top = 2.0
-margin_right = 472.0
-margin_bottom = 514.0
-rect_scale = Vector2( 0.06, 0.06 )
+margin_right = 358.0
+margin_bottom = 400.0
+rect_scale = Vector2( 0.08, 0.08 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -168,9 +145,9 @@ __meta__ = {
 
 [node name="Cards" type="TextureRect" parent="Home"]
 margin_left = -61.0
-margin_top = 77.0
+margin_top = 75.0
 margin_right = 451.0
-margin_bottom = 589.0
+margin_bottom = 587.0
 rect_scale = Vector2( 0.07, 0.07 )
 texture = ExtResource( 6 )
 __meta__ = {
