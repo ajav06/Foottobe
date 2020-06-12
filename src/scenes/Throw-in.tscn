@@ -16,6 +16,7 @@
 script = ExtResource( 6 )
 
 [node name="Backgroun" type="Sprite" parent="."]
+visible = false
 position = Vector2( 512, 300 )
 texture = ExtResource( 7 )
 
@@ -327,7 +328,6 @@ __meta__ = {
 }
 
 [node name="Answer_Window" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -335,9 +335,9 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="Answer_Window"]
-margin_left = 239.3
+margin_left = 238.3
 margin_top = 144.15
-margin_right = 779.3
+margin_right = 778.3
 margin_bottom = 404.15
 texture = ExtResource( 1 )
 __meta__ = {
@@ -345,10 +345,10 @@ __meta__ = {
 }
 
 [node name="proceed_label" type="Label" parent="Answer_Window"]
-margin_left = 322.96
-margin_top = 258.565
-margin_right = 725.96
-margin_bottom = 347.565
+margin_left = 306.96
+margin_top = 257.565
+margin_right = 709.96
+margin_bottom = 346.565
 theme = ExtResource( 14 )
 text = "
 "
