@@ -7,9 +7,38 @@ var timeRedCard = 0 setget set_timeRCard
 var arraydata = [0,0,0,0]
 const filepath = "user://datauser.data"
 
+const DATA_PATH = "res://src/data/"
+var questions = "questions"
+
 func _ready():
+ #	print(load_data(questions))
 	load_bestscore()
 	pass # Replace with function body.
+
+
+func load_data(file_name) -> Dictionary:
+	# Comprobamos que llega un nombre.
+	if file_name == null: return {}
+	
+	# Creamos una variable para manejar un fichero.
+	var file = File.new()
+	
+	# Completamos la ruta para nuestro fichero.
+	var file_path = DATA_PATH + file_name + ".json"
+	
+	# Compruebo si el archivo existe, si no, devuelvo un diccionario vacío.
+	if !file.file_exists(file_path): return {}
+	
+	# Abrimos el archivo para su lectura.
+	file.open(file_path, File.READ)
+	
+	# Asignamos el contenido a una variable tipo Dictionary.
+	var data:Dictionary = {}
+	data = parse_json(file.get_as_text())
+
+	file.close()
+	
+	return data
 
 func load_bestscore():
 	var file = File.new()

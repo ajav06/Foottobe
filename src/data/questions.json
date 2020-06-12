@@ -1,0 +1,163 @@
+{
+    "1": {
+      "pregunta": "¿Qué debes hacer en esta situación? \n Saque de banda",
+      "respA": "Pass the ball to\nany teammate",
+      "respB": "Pass the ball to\nthe goalkeeper",
+      "respC": "Run up the\nclock",
+      "respD": "Pass to a free\nplayer",
+      "buena": 3,
+      "translation": "Pase a un jugador libre"
+    },
+    "2": {
+      "pregunta": "¿Qué debes hacer en esta situación? \n Recibir la pelota después del saque inicial",
+      "respA": "Jugar horizontal",
+      "respB": "Jugar con los centrales",
+      "respC": "Shoot to the goal",
+      "respD": "Tirar el balón a la banda",
+      "buena": 2
+    },
+    "3": {
+      "pregunta": "¿Qué debes hacer en esta situación? \n Tiro libre con una barrera",
+      "respA": "Pasar el balón a un compañero",
+      "respB": "Disparar al palo más lejano",
+      "respC": "Disparar por encima de la barrera",
+      "respD": "Disparar directo a la barrera",
+      "buena": 3
+    },
+    "4": {
+      "pregunta": "What you should do in this situation? \n 1v1 against the goalie",
+      "respA": "Shoot to the far \n post of the goalkeeper",
+      "respB": "Chiped over the \n goalkeeper",
+      "respC": "Shoot straight to the \n goalkeeper",
+      "respD": "Pass to a teammate",
+      "buena": 0
+    },
+    "5": {
+      "pregunta": "What you should do in this situation? \n PK",
+      "respA": "Power shoot",
+      "respB": "Trick the goalkeeper \n then shoot",
+      "respC": "Shoot over the goal",
+      "respD": "Shoot to the post",
+      "buena": 2
+    },
+    "6": {
+      "pregunta": "What you should do in this situation? \n Booked",
+      "respA": "Hit the Referee",
+      "respB": "Accept referees decision",
+      "respC": "Complain",
+      "respD": "Get another yellow card",
+      "buena": 1
+    },
+    "7": {
+      "pregunta": "What you should do in this situation? \n Build up play after pressing to the goalie",
+      "respA": "Pass with the left or right defenders",
+      "respB": "Pass to Center Back",
+      "respC": "Kick the ball far from the area",
+      "respD": "Kick the ball out of the field",
+      "buena": 1
+    },
+    "8": {
+      "pregunta": "What you should do in this situation? \n 1v1 Defending ",
+      "respA": "Hold the player and then steal the ball",
+      "respB": "Doing a tactical foul",
+      "respC": "Injured the player",
+      "respD": "Leave responsibility to the goalkeeper",
+      "buena": 3
+    },
+    "9": {
+      "pregunta": "What you should do in this situation? \n Receiving a cross in the air without opposition",
+      "respA": "Header with power to the goal",
+      "respB": "Control and shoot",
+      "respC": "Control and play against the goalkeeper",
+      "respD": "Do a bicycle kick",
+      "buena": 2
+    },
+    "10": {
+      "pregunta": "What you should do in this situation? \n Being sub",
+      "respA": "Come out and cheer for the teammate who is coming in",
+      "respB": "Get mad at the coach",
+      "respC": "Don’t pay attention to the substitution",
+      "respD": "Accept being substitution",
+      "buena": 0
+    },
+    "11": {
+      "pregunta": "What you should do in this situation? \n Recibir el balón iniciando el partido",
+      "respA": "Play horizontal",
+      "respB": "Play back with \n the Centerback",
+      "respC": "Shoot on goal",
+      "respD": "Throw the ball \n to the sideline",
+      "buena": 1
+    },
+    "12": {
+      "pregunta": "What you should do in this situation? \n Saque de banda",
+      "respA": "Pass the ball to any teammate",
+      "respB": "Pass the ball to the goalkeeper",
+      "respC": "Losing time",
+      "respD": "Pass the ball to the free teammate",
+      "buena": 2
+    },
+    "13": {
+      "pregunta": "Tiro libre con barrera",
+      "respA": "Pass the ball to your teammate",
+      "respB": "Shoot on the goalkeeper second post",
+      "respC": "Shoot over the goal",
+      "respD": "Shoot straight to the wall",
+      "buena": 3
+    },
+    "14": {
+      "pregunta": "Mano a mano con el portero",
+      "respA": "Shoot on the goalkeeper far post",
+      "respB": "Chip it over the Goalkeeper",
+      "respC": "Shoot strong to Goalkeeper",
+      "respD": "Play with your teammate",
+      "buena": 1
+    },
+    "15": {
+      "pregunta": "Tiro penal",
+      "respA": "Shoot strong",
+      "respB": "Shoot after tricking the Goalkeeper",
+      "respC": "Shoot over the goal",
+      "respD": "Shoot to the post",
+      "buena": 0
+    },
+    "16": {
+      "pregunta": "Amonestación",
+      "respA": "Assault the referee",
+      "respB": "Take the referee call",
+      "respC": "Protest the referee call",
+      "respD": "Try to take the second warning",
+      "buena": 1
+    },
+    "17": {
+      "pregunta": "Salida del portero con presión",
+      "respA": "Play with the Fullbacks",
+      "respB": "Play with the centerbacks",
+      "respC": "Kick a longball",
+      "respD": "Throw the ball out of the field",
+      "buena": 2
+    },
+    "18": {
+      "pregunta": "Defendiendo en un mano a mano",
+      "respA": "Hold the striker and steal the ball",
+      "respB": "Make tactical foul",
+      "respC": "Injury the striker",
+      "respD": "Leave everything on the Goalkeeper",
+      "buena": 3
+    },
+    "19": {
+      "pregunta": "Recibir centro por arriba \n  y sin marca dentro del área",
+      "respA": "Heading strong on goal",
+      "respB": "Put down the ball and shoot on goal",
+      "respC": "Receive the ball and go on a 1 vs GK",
+      "respD": "Make a bicycle kick",
+      "buena": 0
+    },
+    "20": {
+      "pregunta": "Ser sustituido por el entrenador",
+      "respA": "Leave the field and cheer my teammate",
+      "respB": "Get mad with coach",
+      "respC": "Don't obey the substitution",
+      "respD": "Take the substitution",
+      "buena": 1
+    }
+}

@@ -128,15 +128,15 @@ margin_left = 312.0
 margin_top = 131.0
 margin_right = 715.0
 margin_bottom = 220.0
-text = "What you should do in this
-situation? Throw in"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_1" type="TextureButton" parent="Question"]
+[node name="Options" type="Node2D" parent="Question"]
+
+[node name="Option_1" type="TextureButton" parent="Question/Options"]
 margin_left = 249.0
 margin_top = 269.0
 margin_right = 499.0
@@ -146,14 +146,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bck" type="TextureRect" parent="Question/Option_1"]
+[node name="bck" type="TextureRect" parent="Question/Options/Option_1"]
 margin_right = 250.0
 margin_bottom = 84.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lbl" type="Label" parent="Question/Option_1"]
+[node name="lbl" type="Label" parent="Question/Options/Option_1"]
 margin_left = 38.0
 margin_top = 13.0
 margin_right = 208.0
@@ -164,7 +164,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_2" type="TextureButton" parent="Question"]
+[node name="Option_2" type="TextureButton" parent="Question/Options"]
 margin_left = 526.0
 margin_top = 269.0
 margin_right = 776.0
@@ -174,14 +174,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bck" type="TextureRect" parent="Question/Option_2"]
+[node name="bck" type="TextureRect" parent="Question/Options/Option_2"]
 margin_right = 250.0
 margin_bottom = 84.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lbl" type="Label" parent="Question/Option_2"]
+[node name="lbl" type="Label" parent="Question/Options/Option_2"]
 margin_left = 38.0
 margin_top = 13.0
 margin_right = 208.0
@@ -192,7 +192,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_3" type="TextureButton" parent="Question"]
+[node name="Option_3" type="TextureButton" parent="Question/Options"]
 margin_left = 249.0
 margin_top = 369.0
 margin_right = 499.0
@@ -202,14 +202,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bck" type="TextureRect" parent="Question/Option_3"]
+[node name="bck" type="TextureRect" parent="Question/Options/Option_3"]
 margin_right = 250.0
 margin_bottom = 84.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lbl" type="Label" parent="Question/Option_3"]
+[node name="lbl" type="Label" parent="Question/Options/Option_3"]
 margin_left = 38.0
 margin_top = 13.0
 margin_right = 208.0
@@ -220,7 +220,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Option_4" type="TextureButton" parent="Question"]
+[node name="Option_4" type="TextureButton" parent="Question/Options"]
 margin_left = 526.0
 margin_top = 369.0
 margin_right = 776.0
@@ -230,18 +230,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bck" type="TextureRect" parent="Question/Option_4"]
+[node name="bck" type="TextureRect" parent="Question/Options/Option_4"]
 margin_right = 250.0
 margin_bottom = 84.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lbl" type="Label" parent="Question/Option_4"]
+[node name="lbl" type="Label" parent="Question/Options/Option_4"]
 margin_left = 38.0
 margin_top = 13.0
 margin_right = 208.0
 margin_bottom = 71.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Before_Anwer" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Yes" type="Button" parent="Before_Anwer"]
+visible = false
+margin_left = 423.0
+margin_top = 513.0
+margin_right = 601.0
+margin_bottom = 587.0
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_No" type="Button" parent="Before_Anwer"]
+visible = false
+margin_left = 423.0
+margin_top = 513.0
+margin_right = 601.0
+margin_bottom = 587.0
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="msg2" type="Label" parent="Before_Anwer"]
+margin_left = 312.0
+margin_top = 131.0
+margin_right = 715.0
+margin_bottom = 220.0
+text = "¿Seguro?
+"
 align = 1
 valign = 1
 __meta__ = {
@@ -280,8 +328,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Footer/Btn_home" to="." method="_on_Btn_home_pressed"]
-[connection signal="pressed" from="Question/Option_1" to="." method="_on_Option_1_pressed"]
-[connection signal="pressed" from="Question/Option_2" to="." method="_on_Option_2_pressed"]
+[connection signal="pressed" from="Question/Options/Option_1" to="." method="_on_Option_1_pressed"]
+[connection signal="pressed" from="Question/Options/Option_2" to="." method="_on_Option_2_pressed"]
+[connection signal="pressed" from="Question/Options/Option_3" to="." method="_on_Option_3_pressed"]
+[connection signal="pressed" from="Question/Options/Option_4" to="." method="_on_Option_4_pressed"]
+[connection signal="pressed" from="Before_Anwer/Btn_Yes" to="." method="_on_Btn_Yes_pressed"]
+[connection signal="pressed" from="Before_Anwer/Btn_No" to="." method="_on_Btn_No_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
 [connection signal="pressed" from="Btn_Back" to="." method="_on_Btn_Back_pressed"]
