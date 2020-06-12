@@ -81,7 +81,6 @@ __meta__ = {
 }
 
 [node name="Question" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 3 )
@@ -127,9 +126,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Question"]
-margin_left = 305.0
+visible = false
+margin_left = 299.0
 margin_top = 131.0
-margin_right = 708.0
+margin_right = 702.0
 margin_bottom = 220.0
 align = 1
 valign = 1
@@ -264,9 +264,9 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="Before_Answer"]
-margin_left = 203.498
-margin_top = 108.052
-margin_right = 851.498
+margin_left = 242.0
+margin_top = 170.0
+margin_right = 850.498
 margin_bottom = 459.052
 texture = ExtResource( 4 )
 expand = true
@@ -275,10 +275,10 @@ __meta__ = {
 }
 
 [node name="Btn_Yes" type="Button" parent="Before_Answer"]
-margin_left = 284.697
-margin_top = 332.846
-margin_right = 462.697
-margin_bottom = 406.846
+margin_left = 296.097
+margin_top = 340.446
+margin_right = 474.097
+margin_bottom = 414.446
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
@@ -288,10 +288,10 @@ __meta__ = {
 }
 
 [node name="Btn_No" type="Button" parent="Before_Answer"]
-margin_left = 594.407
-margin_top = 331.846
-margin_right = 772.407
-margin_bottom = 405.846
+margin_left = 621.007
+margin_top = 342.296
+margin_right = 799.007
+margin_bottom = 416.296
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
@@ -301,10 +301,10 @@ __meta__ = {
 }
 
 [node name="msg2" type="Label" parent="Before_Answer"]
-margin_left = 325.808
-margin_top = 198.711
-margin_right = 728.808
-margin_bottom = 287.711
+margin_left = 340.058
+margin_top = 253.811
+margin_right = 743.058
+margin_bottom = 342.811
 text = "¿Seguro?
 "
 align = 1
@@ -314,10 +314,10 @@ __meta__ = {
 }
 
 [node name="translation" type="Label" parent="Before_Answer"]
-margin_left = 327.7
-margin_top = 120.225
-margin_right = 730.7
-margin_bottom = 209.225
+margin_left = 339.1
+margin_top = 183.875
+margin_right = 742.1
+margin_bottom = 272.875
 align = 1
 valign = 1
 __meta__ = {

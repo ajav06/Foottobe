@@ -174,6 +174,7 @@ func carga_pregunta():
 	botones_random[3].get_node("lbl").text = pregunta_actual["respD"]
 	botones_random[3].set_meta("answer", 3)
 #	botones_random[3] = int($Question/Options/Option_4/lbl_pos.text)
+
 	print(botones_random[3])
 	
 #	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
