@@ -77,6 +77,8 @@ func _on_Btn_Question_pressed():
 	$Question.visible = true
 	$Btn_Back.visible = true
 	$Footer.visible = false
+	$Before_Answer.visible = false
+	
 
 
 func _on_Btn_home_pressed():
@@ -106,6 +108,11 @@ func _on_Option_4_pressed():
 	
 func _prompt_and_check():
 	$Before_Answer.visible = true
+
+func _on_Btn_No_pressed():
+	$Before_Answer.visible = false
+	$Answer_Window.visible = false
+	$Question.visible = true
 
 func _on_Btn_Yes_pressed():
 	$Before_Answer.visible = false
@@ -195,10 +202,7 @@ func _on_Btn_Back_pressed():
 	$Btn_Back.visible = false
 	$Btn_Question.visible = true
 	$Footer.visible = true
+	$Answer_Window.visible = false
 
 func salir():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
-
-
-func _on_Btn_No_pressed():
-	pass # Replace with function body.
