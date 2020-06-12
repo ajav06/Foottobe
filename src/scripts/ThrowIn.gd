@@ -1,10 +1,10 @@
 extends Node2D
 
 
-var tipos_saques = ["Pass the ball to\nany teanmate", 
-					"Pass the ball to\nthe goalkeeper", 
-					"Run up the\nclock",
-					"Pass to a free\nplayer"]
+#var tipos_saques = ["Pass the ball to\nany teanmate", 
+#					"Pass the ball to\nthe goalkeeper", 
+#					"Run up the\nclock",
+#					"Pass to a free\nplayer"]
 var time = null
 var cards = null
 
@@ -26,7 +26,7 @@ func _process(delta):
 	cards = "%02d" % GlobalVar.yellow_card
 	_assign_text()
 
-
+	"""
 func _cambiar_saque():
 	randomize()
 	$Question/Option_1/lbl.text = tipos_saques[0]
@@ -34,7 +34,7 @@ func _cambiar_saque():
 	$Question/Option_3/lbl.text = tipos_saques[2]
 	$Question/Option_4/lbl.text = tipos_saques[3]
 	#$Text.text = tipos_saques[randi() % tipos_saques.size()]
-
+	"""
 
 func _aumentar_score():
 	_cambiar_saque()
