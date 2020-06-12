@@ -81,6 +81,7 @@ __meta__ = {
 }
 
 [node name="Question" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 3 )
@@ -126,7 +127,6 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Question"]
-visible = false
 margin_left = 299.0
 margin_top = 131.0
 margin_right = 702.0
@@ -305,6 +305,7 @@ margin_left = 340.058
 margin_top = 253.811
 margin_right = 743.058
 margin_bottom = 342.811
+theme = ExtResource( 14 )
 text = "¿Seguro?
 "
 align = 1
@@ -318,6 +319,8 @@ margin_left = 339.1
 margin_top = 183.875
 margin_right = 742.1
 margin_bottom = 272.875
+theme = ExtResource( 14 )
+text = "Pase a un jugador libre"
 align = 1
 valign = 1
 __meta__ = {
@@ -347,6 +350,7 @@ margin_left = 323.91
 margin_top = 263.315
 margin_right = 726.91
 margin_bottom = 352.315
+theme = ExtResource( 14 )
 text = "
 "
 align = 1
@@ -360,6 +364,7 @@ margin_left = 333.878
 margin_top = 179.765
 margin_right = 736.878
 margin_bottom = 268.765
+theme = ExtResource( 14 )
 text = "Pase a un jugador libre"
 align = 1
 valign = 1

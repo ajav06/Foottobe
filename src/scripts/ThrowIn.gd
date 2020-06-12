@@ -185,7 +185,7 @@ func carga_pregunta():
 	
 	correct_answer = pregunta_actual["buena"]
 	#translation_c_answer = pregunta_actual["translationA"]
-	$Before_Answer/translation.text = pregunta_actual["translation"]
+	#$Before_Answer/translation.text = pregunta_actual["translation"]
 	#$Answer_Window/translation.text = pregunta_actual["translation"]
 func elige_pregunta(id_pregunta:String):
 	# Comprobamos si el índice existe.

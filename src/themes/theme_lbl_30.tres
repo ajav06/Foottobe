@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=2]
 
-[ext_resource path="res://src/fonts/BAUHS93.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/fonts/Corbel Bold.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.584314, 0.623529, 0.658824, 1 )
