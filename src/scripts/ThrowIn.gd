@@ -14,6 +14,45 @@ var correct_answer
 onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
 var indices:Array = [] 
 
+class Question:
+	var _answers = []
+	var _translations = []
+	var _correct_index = -1
+	var _shuffled = []
+
+	func _init(json_stuff):
+		_answers = json_stuff["answers"]
+		_translations = json_stuff["translations"]
+		_correct_index = json_stuff["correct"]
+		_shuffle()
+
+	func _shuffle():
+		_shuffled.clear()
+		for i in range(_answers.size()):
+			var entry = {}
+			entry["answer"] = _answers[i]
+			entry["translation"] = _translations[i]
+			entry["correct"] = i == _correct_index
+			_shuffled.append(entry)
+		_shuffled.shuffle()
+
+	func is_answer_correct(index):
+		return _shuffled[index]["correct"]
+
+	func get_shuffled_answer(index):
+		return _shuffled[index]["answer"]
+		
+	func get_shuffled_translation(index):
+		return _shuffled[index]["translation"]
+
+	func print_me():
+		print(_answers)
+		print(_translations)
+		print(_correct_index)
+		for i in range(_shuffled.size()):
+			print(_shuffled[i])
+
+
 func _ready():
 	if preguntas_del_nivel.empty():
 		salir()
