@@ -320,7 +320,6 @@ margin_top = 182.925
 margin_right = 724.1
 margin_bottom = 271.925
 theme = ExtResource( 14 )
-text = "Pase a un jugador libre"
 align = 1
 valign = 1
 __meta__ = {
@@ -365,9 +364,21 @@ margin_top = 155.065
 margin_right = 705.528
 margin_bottom = 244.065
 theme = ExtResource( 14 )
-text = "Pase a un jugador libre"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Next" type="Button" parent="Answer_Window"]
+margin_left = 423.0
+margin_top = 505.0
+margin_right = 601.0
+margin_bottom = 589.0
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Next"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -410,6 +421,7 @@ __meta__ = {
 [connection signal="pressed" from="Question/Options/Option_4" to="." method="_on_Option_4_pressed"]
 [connection signal="pressed" from="Before_Answer/Btn_Yes" to="." method="_on_Btn_Yes_pressed"]
 [connection signal="pressed" from="Before_Answer/Btn_No" to="." method="_on_Btn_No_pressed"]
+[connection signal="pressed" from="Answer_Window/Btn_Next" to="." method="_on_Btn_Next_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
 [connection signal="pressed" from="Btn_Back" to="." method="_on_Btn_Back_pressed"]

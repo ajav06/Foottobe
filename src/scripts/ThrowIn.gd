@@ -8,11 +8,13 @@ extends Node2D
 var time = null
 var cards = null
 var user_ans=-1
-var numero_preguntas_nivel = 10
-var turn
+var number_questions = 10
 var correct_answer
-onready var preguntas_del_nivel:Dictionary  = Game.load_data(Game.questions)
-var indices:Array = [] 
+
+var turn
+onready var total_questions:Dictionary  = Game.load_data(Game.questions)
+var indexes:Array = []
+var _question
 
 class Question:
 	var _answers = []
@@ -53,23 +55,26 @@ class Question:
 			print(_shuffled[i])
 
 
+
 func _ready():
-	if preguntas_del_nivel.empty():
+	if total_questions.empty():
 		salir()
 	inicializar()
 	#_cambiar_saque()
 	time = "0:" + str(int($Timer.time_left))
 	cards = "%02d" % GlobalVar.yellow_card
 	_assign_text()
-
+	
 func inicializar():
-	var numero_preguntas_disponibles = contar_indices()
+	#_question._shuffle()
+	var number_questions_available = count_indexes()
 
-	if numero_preguntas_disponibles < numero_preguntas_nivel:
+	if number_questions_available < number_questions:
 		salir()
+		
 	turn = 0
-
-	carga_pregunta()
+	
+	load_question()
 
 func _process(delta):
 	if(GlobalVar.yellow_card >= 2):
@@ -117,51 +122,81 @@ func _on_Btn_Question_pressed():
 	$Btn_Back.visible = true
 	$Footer.visible = false
 	$Before_Answer.visible = false
-	
-
 
 func _on_Btn_home_pressed():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 	pass
 
-
-
 func _on_Option_1_pressed():
-	user_ans = $Question/Options.get_child(0).get_meta("answer")
+	user_ans = 0
+	"""
+	if(_question.is_answer_correct(0)):
+		print('working')
+	else:
+		print('nope 1')
+		"""	
+	#user_ans = $Question/Options.get_child(0).get_meta("answer")
 	_prompt_and_check()
 	pass # Replace with function body.
 
 func _on_Option_2_pressed():
-	user_ans = $Question/Options.get_child(1).get_meta("answer")
+	user_ans = 1
+	"""
+	if(_question.is_answer_correct(1)):
+		print('working maybe 2')
+		# do correct answer stuff here
+	else:
+		print('nope 2')
+		"""
+	#user_ans = $Question/Options.get_child(1).get_meta("answer")
 	_prompt_and_check()
 	pass # Replace with function body.
 
 func _on_Option_3_pressed():
-	user_ans = $Question/Options.get_child(2).get_meta("answer")
+	user_ans = 2
+	"""
+	if(_question.is_answer_correct(2)):
+		print('working maybe 3')
+		# do correct answer stuff here
+	else:
+		print('nope3')
+		"""
+	#user_ans = $Question/Options.get_child(2).get_meta("answer")
 	_prompt_and_check()
 	pass # Replace with function body.
 	
 func _on_Option_4_pressed():
-	user_ans = $Question/Options.get_child(3).get_meta("answer")
+	user_ans = 3
+	"""
+	if(_question.is_answer_correct(3)):
+		print('working maybe 4')
+		# do correct answer stuff here
+	else:
+		print('nope 4')
+		"""
+	#user_ans = $Question/Options.get_child(3).get_meta("answer")
 	_prompt_and_check()
 	
 func _prompt_and_check():
 	$Before_Answer.visible = true
 	$Btn_Back.visible = false
+	$Before_Answer/translation.set_text(_question.get_shuffled_translation(user_ans))
+
 
 func _on_Btn_No_pressed():
 	$Before_Answer.visible = false
 	$Answer_Window.visible = false
 	$Question.visible = true
+	$Btn_Back.visible = true
 
 func _on_Btn_Yes_pressed():
 	$Before_Answer.visible = false
 	#$Answer_Window.visible = true
 	$Question.visible = false
 	$Btn_Back.visible = true
-
+	$Answer_Window/translation.set_text(_question.get_shuffled_translation(user_ans))
 	
-	if(user_ans==correct_answer):
+	if(_question.is_answer_correct(user_ans)):
 		$Before_Answer.visible = false
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
@@ -176,19 +211,36 @@ func _on_Btn_Yes_pressed():
 		GlobalVar._aumentar_tarjeta()
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!"
 		print('doesnt work')
-	 
-	if turn < numero_preguntas_nivel-1:
-		turn += 1 # 
+		
+	if turn < number_questions-1:
+		turn += 1 #
 		get_tree().change_scene("")
-		carga_pregunta()
+		load_question()
 	else:
 		print('Game Over')
-	
-func carga_pregunta():
-	# Asigna la pregunta almacenada en el índice correspondiente al turn en juego
-	var pregunta_actual = elige_pregunta(indices[turn])
-	
+		
+func load_question():
 
+	var current_question = choose_question(indexes[turn])
+	#var question = Question.new(current_question)
+	_question = Question.new(current_question)
+
+	$Question/Label.text = current_question["pregunta"] 
+	$Question/Options/Option_1/lbl.set_text(_question.get_shuffled_answer(0))
+	$Question/Options/Option_2/lbl.set_text(_question.get_shuffled_answer(1))
+	$Question/Options/Option_3/lbl.set_text(_question.get_shuffled_answer(2))
+	$Question/Options/Option_4/lbl.set_text(_question.get_shuffled_answer(3))
+
+	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(user_ans))
+	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(1))
+	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(2))
+	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(3))
+
+	#button1.set_text(question.get_shuffled_answer(0))
+	#button2.set_text(question.get_shuffled_answer(1))
+	_question.print_me()
+	
+	"""
 	# creamos botones aleatorios
 	var botones_random = $Question/Options.get_children()
 	randomize() # actualizamos la semilla
@@ -215,30 +267,31 @@ func carga_pregunta():
 #	botones_random[3] = int($Question/Options/Option_4/lbl_pos.text)
 
 	print(botones_random[3])
-	
+	"""
 #	$Question/Question_Window/lbl_question.text = pregunta_actual["pregunta"]
 #	$Question/Options/Option_1/lbl.text = pregunta_actual["respA"]
 #	$Question/Options/Option_2/lbl.text = pregunta_actual["respB"]
 #	$Question/Options/Option_3/lbl.text = pregunta_actual["respC"]
 #	$Question/Options/Option_4/lbl.text = pregunta_actual["respD"]
 	
-	correct_answer = pregunta_actual["buena"]
+	#correct_answer = pregunta_actual["buena"]
 	#translation_c_answer = pregunta_actual["translationA"]
 	#$Before_Answer/translation.text = pregunta_actual["translation"]
 	#$Answer_Window/translation.text = pregunta_actual["translation"]
-func elige_pregunta(id_pregunta:String):
-	# Comprobamos si el índice existe.
-	if preguntas_del_nivel.has(id_pregunta):
-		return preguntas_del_nivel[id_pregunta] # Si el índice existe, devuelve el diccionario que almacena.
+
+func choose_question(question_id:String):
+	# Check if the index exist
+	if total_questions.has(question_id):
+		return total_questions[question_id] # if the index exists, returns the dictionary.
 	else:
 		print('error')
-		return {} # Si no existe, devuelve vacío.
+		return {} # if not, returns empty.
+			 
+func count_indexes():
+	# We load in the array the indexes of all the numbers of the questions.
+	indexes = total_questions.keys()
+	return indexes.size() 
 		 
-func contar_indices():
-	# Cargamos en el array indices todos los numeros de pregunta 1,2,3,...
-	indices = preguntas_del_nivel.keys()
-	return indices.size() 
-
 func _on_Btn_Back_pressed():
 	$Backgroun.visible = false
 	$Players.visible = true
@@ -250,3 +303,7 @@ func _on_Btn_Back_pressed():
 
 func salir():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
+
+
+func _on_Btn_Next_pressed():
+	pass # Replace with function body.
