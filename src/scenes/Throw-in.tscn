@@ -15,7 +15,7 @@
 [node name="Throw-in" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="Backgroun" type="Sprite" parent="."]
+[node name="Background" type="Sprite" parent="."]
 visible = false
 position = Vector2( 512, 300 )
 texture = ExtResource( 7 )
@@ -383,6 +383,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Final_Score" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Final_Score"]
+margin_left = 238.3
+margin_top = 144.15
+margin_right = 778.3
+margin_bottom = 404.15
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="Final_Score"]
+margin_left = 302.528
+margin_top = 155.065
+margin_right = 705.528
+margin_bottom = 244.065
+theme = ExtResource( 14 )
+text = "Final Score"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="final_score" type="Label" parent="Final_Score"]
+margin_left = 307.0
+margin_top = 229.0
+margin_right = 710.0
+margin_bottom = 307.0
+theme = ExtResource( 14 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Restart" type="Button" parent="Final_Score"]
+margin_left = 554.781
+margin_top = 305.757
+margin_right = 732.781
+margin_bottom = 389.757
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Exit" type="Button" parent="Final_Score"]
+margin_left = 286.675
+margin_top = 303.675
+margin_right = 464.675
+margin_bottom = 387.675
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 31.0
 one_shot = true
@@ -422,6 +491,8 @@ __meta__ = {
 [connection signal="pressed" from="Before_Answer/Btn_Yes" to="." method="_on_Btn_Yes_pressed"]
 [connection signal="pressed" from="Before_Answer/Btn_No" to="." method="_on_Btn_No_pressed"]
 [connection signal="pressed" from="Answer_Window/Btn_Next" to="." method="_on_Btn_Next_pressed"]
+[connection signal="pressed" from="Final_Score/Btn_Restart" to="." method="_on_Btn_Restart_pressed"]
+[connection signal="pressed" from="Final_Score/Btn_Exit" to="." method="_on_Btn_Exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
 [connection signal="pressed" from="Btn_Back" to="." method="_on_Btn_Back_pressed"]

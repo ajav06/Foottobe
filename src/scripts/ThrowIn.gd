@@ -8,7 +8,7 @@ extends Node2D
 var time = null
 var cards = null
 var user_ans=-1
-var number_questions = 10
+var number_questions = 2
 var correct_answer
 
 var turn
@@ -20,7 +20,10 @@ class Question:
 	var _answers = []
 	var _translations = []
 	var _correct_index = -1
+	#var _correct_index = []
 	var _shuffled = []
+	#var correct = [3,0]
+
 
 	func _init(json_stuff):
 		_answers = json_stuff["answers"]
@@ -35,6 +38,16 @@ class Question:
 			entry["answer"] = _answers[i]
 			entry["translation"] = _translations[i]
 			entry["correct"] = i == _correct_index
+			#entry["correct"] = _correct_index[i]
+			"""
+			match correct.find(_answers[i]):
+				0:
+					print("Wronggg")
+				-1:
+					print("Best")
+				_:
+					print("try again")
+					"""
 			_shuffled.append(entry)
 		_shuffled.shuffle()
 
@@ -46,15 +59,13 @@ class Question:
 		
 	func get_shuffled_translation(index):
 		return _shuffled[index]["translation"]
-
+	
 	func print_me():
 		print(_answers)
 		print(_translations)
 		print(_correct_index)
 		for i in range(_shuffled.size()):
 			print(_shuffled[i])
-
-
 
 func _ready():
 	if total_questions.empty():
@@ -116,7 +127,7 @@ func _on_Timer_timeout():
 
 func _on_Btn_Question_pressed():
 	$Players.visible = false
-	$Backgroun.visible = true
+	$Background.visible = true
 	$Btn_Question.visible = false
 	$Question.visible = true
 	$Btn_Back.visible = true
@@ -212,13 +223,6 @@ func _on_Btn_Yes_pressed():
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!"
 		print('doesnt work')
 		
-	if turn < number_questions-1:
-		turn += 1 #
-		get_tree().change_scene("")
-		load_question()
-	else:
-		print('Game Over')
-		
 func load_question():
 
 	var current_question = choose_question(indexes[turn])
@@ -293,7 +297,7 @@ func count_indexes():
 	return indexes.size() 
 		 
 func _on_Btn_Back_pressed():
-	$Backgroun.visible = false
+	$Background.visible = false
 	$Players.visible = true
 	$Question.visible = false
 	$Btn_Back.visible = false
@@ -301,9 +305,32 @@ func _on_Btn_Back_pressed():
 	$Footer.visible = true
 	$Answer_Window.visible = false
 
+
+func _on_Btn_Next_pressed():
+	if turn < number_questions-1:
+		turn += 1 
+		$Question.visible = true
+		$Answer_Window.visible = false
+		$Btn_Back.visible = true
+		#get_tree().change_scene("")
+		load_question()
+	else:
+		#transicion.ir_a_escena("res://escenas/premios.tscn")
+		$Final_Score.visible = true
+		$Answer_Window.visible = false
+		$Final_Score/final_score.text = str(GlobalVar.score)
+		print('Game Over')
+	pass # Replace with function body.
+
 func salir():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 
 
-func _on_Btn_Next_pressed():
+func _on_Btn_Restart_pressed():
+	get_tree().change_scene("res://src/scenes/Throw-in.tscn")
+	pass # Replace with function body.
+
+
+func _on_Btn_Exit_pressed():
+	salir()
 	pass # Replace with function body.
