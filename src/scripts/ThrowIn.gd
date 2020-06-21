@@ -19,16 +19,18 @@ var _question
 class Question:
 	var _answers = []
 	var _translations = []
-	var _correct_index = -1
-	#var _correct_index = []
+	#var _correct_index = -1
+	var _correct_index = []
 	var _shuffled = []
-	#var correct = [3,0]
-
+	var correct2 = ["a", "b"]
+	var correct1 = [0,1]
+	var _new_array = []
 
 	func _init(json_stuff):
 		_answers = json_stuff["answers"]
 		_translations = json_stuff["translations"]
 		_correct_index = json_stuff["correct"]
+		matching()
 		_shuffle()
 
 	func _shuffle():
@@ -37,20 +39,28 @@ class Question:
 			var entry = {}
 			entry["answer"] = _answers[i]
 			entry["translation"] = _translations[i]
-			entry["correct"] = i == _correct_index
-			#entry["correct"] = _correct_index[i]
-			"""
-			match correct.find(_answers[i]):
-				0:
-					print("Wronggg")
-				-1:
-					print("Best")
-				_:
-					print("try again")
-					"""
+			#entry["correct"] = i == _correct_index
+			#_new_array = Array(_answers)
+			#match correct.find(_answers[i]):
+			entry["correct"] = _correct_index[i]
 			_shuffled.append(entry)
 		_shuffled.shuffle()
 
+	func matching():
+		#for i in correct2:
+			#match correct1.find(correct2.find(i)):
+		for i in _answers:
+			match _correct_index.find(_answers.find(i)):
+		#for i in range(correct2.size()):
+			#match correct1.find(i):
+		#for i in range(_answers.size()):
+			#match _correct_index.find(i):
+				-1:
+					print("Wrong")
+				0:
+					print("Best")
+				1:
+					print("Good")
 	func is_answer_correct(index):
 		return _shuffled[index]["correct"]
 
@@ -83,8 +93,35 @@ func inicializar():
 	if number_questions_available < number_questions:
 		salir()
 		
+	#randomize() # actualiza la semilla para generar aleatorios
+	#indexes.shuffle()
 	turn = 0
 	
+	for i in range(indexes.size()):
+		var k = i+1
+		#print(indexes[i])
+		if(indexes[i]):
+			print(indexes[i])
+			$Situations/Players2.visible = true
+			print('players2')
+			#print(indexes[i]==str(k))
+		elif(indexes[i]==str(k)):
+			$Situations/Players.visible = true
+			print('players1')
+		#elif(indexes[i]==str(k)):
+		#	#$Situations/Players2.visible = true
+		#	print('players3')
+		#elif(indexes[i]==str(k)):
+		#	#$Situations/Players2.visible = true
+		#	print('players4')
+		#elif(indexes[i]==str(k)):
+		#	#$Situations/Players2.visible = true
+		#	print('players5')
+		else:
+			print('hopefully this works')
+			
+	#for i in range(count_indexes()):
+	#	print(number_questions_available)
 	load_question()
 
 func _process(delta):
@@ -126,7 +163,9 @@ func _on_Timer_timeout():
 
 
 func _on_Btn_Question_pressed():
-	$Players.visible = false
+	#$Players.visible = false
+	$Situations/Players2.visible = false
+	#$Situations/Players.visible = false
 	$Background.visible = true
 	$Btn_Question.visible = false
 	$Question.visible = true
@@ -207,24 +246,37 @@ func _on_Btn_Yes_pressed():
 	$Btn_Back.visible = true
 	$Answer_Window/translation.set_text(_question.get_shuffled_translation(user_ans))
 	
-	if(_question.is_answer_correct(user_ans)):
+	if(_question.is_answer_correct(user_ans)==0):
+		$Before_Answer.visible = false
+		$Answer_Window.visible = true
+		$Btn_Back.visible = false
+		
+		_aumentar_score()
+		print('it works Best')
+		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta! Best"
+	elif(_question.is_answer_correct(user_ans)==1):
 		$Before_Answer.visible = false
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		_aumentar_score()
-		print('it works')
-		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!"
+		print('it works Good')
+		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta! Good"
 		#get_tree().reload_current_scene()
 	else:
 		$Before_Answer.visible = false
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
-		GlobalVar._aumentar_tarjeta()
+		#GlobalVar._aumentar_tarjeta()
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!"
 		print('doesnt work')
-		
-func load_question():
+		"""		
+func scene_next():
+	#var situations = $Situations.get_children()
+	for i in range(turn):
+		#$Situations/Players.visible = true
+		"""
 
+func load_question():
 	var current_question = choose_question(indexes[turn])
 	#var question = Question.new(current_question)
 	_question = Question.new(current_question)
@@ -235,6 +287,12 @@ func load_question():
 	$Question/Options/Option_3/lbl.set_text(_question.get_shuffled_answer(2))
 	$Question/Options/Option_4/lbl.set_text(_question.get_shuffled_answer(3))
 
+	
+#	var idk = $Situations.get_children()
+
+	#if(idk[0].get_node("Label").get_text == 0):
+	#	$Situations/Players2.visible = true
+	
 	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(user_ans))
 	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(1))
 	#$Before_Answer/translation.set_text(_question.get_shuffled_translation(2))
@@ -298,7 +356,8 @@ func count_indexes():
 		 
 func _on_Btn_Back_pressed():
 	$Background.visible = false
-	$Players.visible = true
+	#$Players.visible = true
+	$Situations/Players2.visible = true
 	$Question.visible = false
 	$Btn_Back.visible = false
 	$Btn_Question.visible = true
@@ -329,7 +388,12 @@ func salir():
 func _on_Btn_Restart_pressed():
 	get_tree().change_scene("res://src/scenes/Throw-in.tscn")
 	pass # Replace with function body.
+	"""
+func test():
+	var idk = $Situations.get_children()
 
+	idk[0].get_node("Label").text = pregunta_actual["respD"]
+	"""
 
 func _on_Btn_Exit_pressed():
 	salir()
