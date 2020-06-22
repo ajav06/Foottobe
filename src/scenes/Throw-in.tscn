@@ -33,28 +33,41 @@ position = Vector2( 512.95, 300 )
 visible = false
 texture = ExtResource( 15 )
 
-[node name="Label" type="Label" parent="Situations/Background1"]
-visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Background2" type="Sprite" parent="Situations"]
 visible = false
 texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Situations/Background2"]
+[node name="Background3" type="Sprite" parent="Situations"]
 visible = false
-margin_right = 40.0
-margin_bottom = 14.0
-text = "1"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 5 )
+
+[node name="Background4" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Background5" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Background6" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Background7" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Background8" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Background9" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="Background10" type="Sprite" parent="Situations"]
+visible = false
+texture = ExtResource( 5 )
 
 [node name="Footer" type="Control" parent="."]
 margin_right = 40.0

@@ -97,12 +97,14 @@ func inicializar():
 	#randomize()
 	#indexes.shuffle()
 
+	"""
 	for i in indexes:
 		var k = i
 		if i == k:
 		  $Situations.get_child(int(i)).show()
 		else:
 		  $Situations.get_child(int(i)).hide()
+		  """
 	"""
 	for i in range(indexes.size()):
 		var k = i+1
@@ -172,8 +174,9 @@ func _on_Timer_timeout():
 
 func _on_Btn_Question_pressed():
 	#$Players.visible = false
-	$Situations/Players2.visible = false
-	$Situations/Players.visible = false
+	#$Situations/Players2.visible = false
+	#$Situations/Players.visible = false
+	$Situations.get_child(int(indexes[turn-1])).hide()
 	$Background.visible = true
 	$Btn_Question.visible = false
 	$Question.visible = true
@@ -285,16 +288,27 @@ func scene_next():
 		"""
 
 func load_question():
+	randomize()
+	indexes.shuffle()
+	print(indexes)
 	var current_question = choose_question(indexes[turn])
+	print(indexes[turn])
+	print(int(indexes[turn])-1)
+	#print(typeof(int(indexes[turn]))
 	_question = Question.new(current_question)
-
+	print(current_question)
 	$Question/Label.text = current_question["question"] 
 	$Question/Options/Option_1/lbl.set_text(_question.get_shuffled_answer(0))
 	$Question/Options/Option_2/lbl.set_text(_question.get_shuffled_answer(1))
 	$Question/Options/Option_3/lbl.set_text(_question.get_shuffled_answer(2))
 	$Question/Options/Option_4/lbl.set_text(_question.get_shuffled_answer(3))
 
-	
+
+	var backs = $Situations.get_children()
+	for node in backs:
+		node.hide() #start by hiding all BGs
+	$Situations.get_child(int(indexes[turn-1])).show() #unhide the one we want
+		# do the other things, set text, show answers, etc
 #	var idk = $Situations.get_children()
 
 	#if(idk[0].get_node("Label").get_text == 0):
@@ -365,8 +379,9 @@ func count_indexes():
 func _on_Btn_Back_pressed():
 	$Background.visible = false
 	#$Players.visible = true
-	$Situations/Players2.visible = true
-	$Situations/Players.visible = true
+	#$Situations/Players2.visible = true
+	#$Situations/Players.visible = true
+	$Situations.get_child(int(indexes[turn-1])).show()
 	$Question.visible = false
 	$Btn_Back.visible = false
 	$Btn_Question.visible = true
@@ -377,11 +392,13 @@ func _on_Btn_Back_pressed():
 func _on_Btn_Next_pressed():
 	if turn < number_questions-1:
 		turn += 1 
-		$Question.visible = true
-		$Answer_Window.visible = false
-		$Btn_Back.visible = true
 		#get_tree().change_scene("")
 		load_question()
+		
+		#$Question.visible = true
+		$Answer_Window.visible = false
+		#$Btn_Back.visible = true
+		$Btn_Question.visible = true
 	else:
 		#transicion.ir_a_escena("res://escenas/premios.tscn")
 		$Final_Score.visible = true
