@@ -1,60 +1,60 @@
 {
     "1": {
-      "pregunta": "What you should do in this situation? \n Throw in",
+      "question": "Question 1",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "2": {
-      "pregunta": "What you should do in this situation? \n Receiving the ball after kickoff",
+      "question": "Question 2",
       "answers":["aa", "bb", "cd", "dd"],
       "translations":["q", "r", "s", "t"],
       "correct": [-1,-1,0,1]
     },
     "3": {
-      "pregunta": "What you should do in this situation? \n Free kick with a wall",
+      "question": "Question 3",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "4": {
-      "pregunta": "What you should do in this situation? \n 1v1 against the goalie",
+      "question": "What you should do in this situation? \n 1v1 against the goalie",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "5": {
-      "pregunta": "What you should do in this situation? \n PK",
+      "question": "What you should do in this situation? \n PK",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "6": {
-      "pregunta": "What you should do in this situation? \n Booked",
+      "question": "What you should do in this situation? \n Booked",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "7": {
-      "pregunta": "What you should do in this situation? \n Build up play after pressing to the goalie",
+      "question": "What you should do in this situation? \n Build up play after pressing to the goalie",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "8": {
-      "pregunta": "What you should do in this situation? \n 1v1 Defending ",
+      "question": "What you should do in this situation? \n 1v1 Defending ",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "9": {
-      "pregunta": "What you should do in this situation? \n Receiving a cross in the air without opposition",
+      "question": "What you should do in this situation? \n Receiving a cross in the air without opposition",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]
     },
     "10": {
-      "pregunta": "What you should do in this situation? \n Being sub",
+      "question": "What you should do in this situation? \n Being sub",
       "answers":["a", "b", "c", "d"],
       "translations":["q", "r", "s", "t"],
       "correct": [0,1,-1,-1]

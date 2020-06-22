@@ -92,15 +92,22 @@ func inicializar():
 
 	if number_questions_available < number_questions:
 		salir()
-		
-	#randomize() # actualiza la semilla para generar aleatorios
-	#indexes.shuffle()
-	turn = 0
 	
+	turn = 0
+	#randomize()
+	#indexes.shuffle()
+
+	for i in indexes:
+		var k = i
+		if i == k:
+		  $Situations.get_child(int(i)).show()
+		else:
+		  $Situations.get_child(int(i)).hide()
+	"""
 	for i in range(indexes.size()):
 		var k = i+1
 		#print(indexes[i])
-		if(indexes[i]):
+		if(indexes[i]==str(k)):
 			print(indexes[i])
 			$Situations/Players2.visible = true
 			print('players2')
@@ -119,7 +126,8 @@ func inicializar():
 		#	print('players5')
 		else:
 			print('hopefully this works')
-			
+			"""
+				
 	#for i in range(count_indexes()):
 	#	print(number_questions_available)
 	load_question()
@@ -165,7 +173,7 @@ func _on_Timer_timeout():
 func _on_Btn_Question_pressed():
 	#$Players.visible = false
 	$Situations/Players2.visible = false
-	#$Situations/Players.visible = false
+	$Situations/Players.visible = false
 	$Background.visible = true
 	$Btn_Question.visible = false
 	$Question.visible = true
@@ -278,10 +286,9 @@ func scene_next():
 
 func load_question():
 	var current_question = choose_question(indexes[turn])
-	#var question = Question.new(current_question)
 	_question = Question.new(current_question)
 
-	$Question/Label.text = current_question["pregunta"] 
+	$Question/Label.text = current_question["question"] 
 	$Question/Options/Option_1/lbl.set_text(_question.get_shuffled_answer(0))
 	$Question/Options/Option_2/lbl.set_text(_question.get_shuffled_answer(1))
 	$Question/Options/Option_3/lbl.set_text(_question.get_shuffled_answer(2))
@@ -304,6 +311,7 @@ func load_question():
 	
 	"""
 	# creamos botones aleatorios
+
 	var botones_random = $Question/Options.get_children()
 	randomize() # actualizamos la semilla
 	botones_random.shuffle() # barajamos los botones
@@ -358,6 +366,7 @@ func _on_Btn_Back_pressed():
 	$Background.visible = false
 	#$Players.visible = true
 	$Situations/Players2.visible = true
+	$Situations/Players.visible = true
 	$Question.visible = false
 	$Btn_Back.visible = false
 	$Btn_Question.visible = true

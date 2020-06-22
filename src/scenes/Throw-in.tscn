@@ -29,11 +29,11 @@ texture = ExtResource( 15 )
 [node name="Situations" type="Node2D" parent="."]
 position = Vector2( 512.95, 300 )
 
-[node name="Players" type="Sprite" parent="Situations"]
+[node name="Background1" type="Sprite" parent="Situations"]
 visible = false
 texture = ExtResource( 15 )
 
-[node name="Label" type="Label" parent="Situations/Players"]
+[node name="Label" type="Label" parent="Situations/Background1"]
 visible = false
 margin_right = 40.0
 margin_bottom = 14.0
@@ -43,11 +43,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Players2" type="Sprite" parent="Situations"]
+[node name="Background2" type="Sprite" parent="Situations"]
 visible = false
 texture = ExtResource( 5 )
 
-[node name="Label" type="Label" parent="Situations/Players2"]
+[node name="Label" type="Label" parent="Situations/Background2"]
 visible = false
 margin_right = 40.0
 margin_bottom = 14.0
