@@ -10,7 +10,7 @@ func _ready():
 	$Home/Score.text = "%03d" % Game.bestscore
 	$Home/Faild.text = "%02d / %02d" % [Game.redcard, Game.yellowcard]
 
-func _process(delta):
+func _process(_delta):
 	if($Timer.time_left <= 1):
 		$Home/Time.text = "00:00"
 		$Play.disabled = false
@@ -22,7 +22,7 @@ func _process(delta):
 
 
 func _calcular_timer():
-
+	"""
 	time_now = OS.get_datetime()
 	limit = time_now
 	$Timer.wait_time = 0
@@ -44,7 +44,7 @@ func _calcular_timer():
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
 			print('HOla bb')
-			
+			"""
 
 
 func _on_Exit_pressed():

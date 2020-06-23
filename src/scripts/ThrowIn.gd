@@ -3,7 +3,7 @@ extends Node2D
 var time = null
 var cards = null
 var user_ans=-1
-var number_questions = 2
+var number_questions = 5
 
 var turn
 onready var total_questions:Dictionary  = Game.load_data(Game.questions)
@@ -67,12 +67,14 @@ func inicializar():
 	turn = 0
 	load_question()
 
-func _process(delta):
-	#var timer_left
+func resetting_values():
+	$Timer.stop()
+	GlobalVar.yellow_card = 0
+	GlobalVar.score = 0
+
+func _process(_delta):
 	if(GlobalVar.yellow_card >= 2):
-		$Timer.stop()
-		GlobalVar.yellow_card = 0
-		GlobalVar.score = 0
+		resetting_values()
 		$Disqualification.visible = true
 		$Answer_Window/Btn_Next.visible = false
 		
@@ -109,17 +111,6 @@ func _assign_text():
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
-
-func _on_Btn_Question_pressed():
-	#$Players.visible = false
-	$Situations.get_child(int(indexes[turn])-1).hide()
-	$Background.visible = true
-	$Question.visible = true
-	$Btn_Back.visible = true
-	
-	$Btn_Question.visible = false
-	$Footer.visible = false
-	$Before_Answer.visible = false
 
 func _on_Btn_home_pressed():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
@@ -189,12 +180,12 @@ func _on_Btn_Yes_pressed():
 func load_question():
 
 	#var current_question = randi() % questions.size()
-	#randomize()
-	#indexes.shuffle()
-	print(indexes)
+	randomize()
+	indexes.shuffle()
+	#print(indexes)
 	var current_question = choose_question(indexes[turn])
-	print(indexes[turn])
-	print(int(indexes[turn])-1) # this is the way it works
+	#print(indexes[turn])
+	#print(int(indexes[turn])-1) # this is the way it works
 	_question = Question.new(current_question)
 	#print(current_question)
 	$Question/Label.text = current_question["question"] 
@@ -222,17 +213,6 @@ func count_indexes():
 	# We load in the array the indexes of all the numbers of the questions.
 	indexes = total_questions.keys()
 	return indexes.size() 
-		 
-func _on_Btn_Back_pressed():
-	$Background.visible = false
-	#$Players.visible = true
-	$Situations.get_child(int(indexes[turn])-1).show()
-	$Question.visible = false
-	$Btn_Back.visible = false
-	$Btn_Question.visible = true
-	$Footer.visible = true
-	$Answer_Window.visible = false
-
 
 func _on_Btn_Next_pressed():
 	if turn < number_questions-1:
@@ -242,8 +222,8 @@ func _on_Btn_Next_pressed():
 		$Footer.visible = true
 		$Timer.start()
 		load_question()
-		$Answer_Window.visible = false
 		$Btn_Question.visible = true
+		$Answer_Window.visible = false
 	else:
 		$Final_Score.visible = true
 		$Answer_Window.visible = false
@@ -251,17 +231,15 @@ func _on_Btn_Next_pressed():
 		print('Game Over')
 	pass # Replace with function body.
 
+
+
 func salir():
-	$Timer.stop()
-	GlobalVar.yellow_card = 0
-	GlobalVar.score = 0
+	resetting_values()
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 
 
 func _on_Btn_Restart_pressed():
-	$Timer.stop()
-	GlobalVar.yellow_card = 0
-	GlobalVar.score = 0
+	resetting_values()
 	get_tree().change_scene("res://src/scenes/Throw-in.tscn")
 	pass # Replace with function body.
 
@@ -273,3 +251,37 @@ func _on_Btn_Exit_pressed():
 func _on_Btn_Ok_pressed():
 	salir()
 	pass # Replace with function body.
+
+func _on_Btn_Back_pressed():
+	#$Players.visible = true
+	$Situations.get_child(int(indexes[turn])-1).show()
+	$Background.visible = false
+	$Question.visible = false
+	$Btn_Back.visible = false
+
+	$Btn_Question.visible = true
+	$Footer.visible = true
+	$Answer_Window.visible = false
+		
+func _on_Btn_Question_pressed():
+	#$Players.visible = false
+	$Situations.get_child(int(indexes[turn])-1).hide()
+	$Background.visible = true
+	$Question.visible = true
+	$Btn_Back.visible = true
+			
+	$Btn_Question.visible = false
+	$Footer.visible = false
+	$Before_Answer.visible = false
+			
+
+	"""
+func _on_background_changed(flip = false):
+	$Background.visible = false if not flip else true
+	$Question.visible = false if not flip else true
+	$Btn_Back.visible = false if not flip else true
+	#$Btn_Question.visible = true
+	#$Footer.visible = true
+	#$Answer_Window.visible = false
+	pass # Replace with function body.
+	"""
