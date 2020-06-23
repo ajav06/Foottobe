@@ -232,7 +232,6 @@ func _on_Btn_Next_pressed():
 	pass # Replace with function body.
 
 
-
 func salir():
 	resetting_values()
 	get_tree().change_scene("res://src/scenes/Main.tscn")

@@ -44,7 +44,7 @@ func _calcular_timer():
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
 			print('HOla bb')
-			"""
+	"""		
 
 
 func _on_Exit_pressed():
