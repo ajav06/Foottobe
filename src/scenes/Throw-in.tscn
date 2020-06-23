@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/images/bg-2.png" type="Texture" id=1]
 [ext_resource path="res://src/images/Pregunta.png" type="Texture" id=2]
@@ -9,7 +9,10 @@
 [ext_resource path="res://src/images/Background - 6.png" type="Texture" id=7]
 [ext_resource path="res://src/images/yellow-card.png" type="Texture" id=8]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=9]
+[ext_resource path="res://src/images/Background - 5 (3).png" type="Texture" id=10]
+[ext_resource path="res://src/images/Background - 5 (4).png" type="Texture" id=11]
 [ext_resource path="res://src/images/home-small.png" type="Texture" id=12]
+[ext_resource path="res://src/images/Background - 5 (5).png" type="Texture" id=13]
 [ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=14]
 [ext_resource path="res://src/images/Background - 5.png" type="Texture" id=15]
 
@@ -39,35 +42,15 @@ texture = ExtResource( 5 )
 
 [node name="Background3" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Background4" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 5 )
+texture = ExtResource( 11 )
 
 [node name="Background5" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 5 )
-
-[node name="Background6" type="Sprite" parent="Situations"]
-visible = false
-texture = ExtResource( 5 )
-
-[node name="Background7" type="Sprite" parent="Situations"]
-visible = false
-texture = ExtResource( 5 )
-
-[node name="Background8" type="Sprite" parent="Situations"]
-visible = false
-texture = ExtResource( 5 )
-
-[node name="Background9" type="Sprite" parent="Situations"]
-visible = false
-texture = ExtResource( 5 )
-
-[node name="Background10" type="Sprite" parent="Situations"]
-visible = false
-texture = ExtResource( 5 )
+texture = ExtResource( 13 )
 
 [node name="Footer" type="Control" parent="."]
 margin_right = 40.0
