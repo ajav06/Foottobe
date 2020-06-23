@@ -13,19 +13,19 @@
     },
     "3": {
       "question": "¿Qué debes hacer en esta situación? \n Tiro libre con barrera",
-      "answers":["Pass the ball to \nyour teammate", "Shoot on the \ngoalkeeper second post", "Shoot over the goal", "Shoot straight \nto the wall"],
+      "answers":["Pass the ball to \nyour teammate", "Shoot on the \ngoalkeeper second post", "Shoot over the wall", "Shoot straight\nto the wall"],
       "translations":["Pasar el balón a un compañero", "Disparar al palo más lejano", "Disparar por encima de la barrera", "Disparar directo a la barrera"],
       "correct": [-1,-1,3,-1]
     },
     "4": {
       "question": "¿Qué debes hacer en esta situación? \n Mano a mano con el portero",
-      "answers":["Shoot to the far \n post of the goalkeeper", "Chiped over the \n goalkeeper", "Shoot straight to the \n goalkeeper", "Pass to a teammate"],
+      "answers":["Shoot to the far\npost of the goalkeeper", "Chiped over the \n goalkeeper", "Shoot straight to \n the goalkeeper", "Pass to \na teammate"],
       "translations":["Disparar al segundo palo del portero", "Picar el balón por encima del portero", "Disparar fuerte al portero", "Pasar el balón a un compañero"],
       "correct": [0,1,-1,-1]
     },
     "5": {
       "question": "¿Qué debes hacer en esta situación? \n Tiro penal",
-      "answers":["Power shoot", "Trick the goalkeeper \n then shoot", "Shoot over the goal", "Shoot to the post"],
+      "answers":["Power shoot", "Trick the \ngoalkeeper then shoot", "Shoot over\n the goal", "Shoot to\n the post"],
       "translations":["Cobrar fuerte", "Cobrar luego de engañar al portero", "Cobrar arriba la portería", "Cobrar al poste"],
       "correct": [-1,3,-1,-1]
     }

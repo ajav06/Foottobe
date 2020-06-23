@@ -32,6 +32,7 @@ class Question:
 			#entry["correct"] = i == _correct_index
 			entry["correct"] = _correct_index[i]
 			_shuffled.append(entry)
+		randomize()
 		_shuffled.shuffle()
 
 	func is_answer_correct(index):
@@ -67,11 +68,19 @@ func inicializar():
 	load_question()
 
 func _process(delta):
+	#var timer_left
 	if(GlobalVar.yellow_card >= 2):
 		$Timer.stop()
 		GlobalVar.yellow_card = 0
 		GlobalVar.score = 0
-		get_tree().change_scene("res://src/scenes/Main.tscn")
+		$Disqualification.visible = true
+		$Answer_Window/Btn_Next.visible = false
+		
+		#$Disqualification/waiting_time.text = "00:00"
+		#$Disqualification/waiting_time.text = "%02d:%02d" % [Main.time_timer/60, Main.time_timer%60]
+		#$Background.visible = false
+		#$Situations.get_child(int(indexes[turn])-1).show()
+		#get_tree().change_scene("res://src/scenes/Main.tscn")
 	
 	time = "00:%02d" % int($Timer.time_left)
 	cards = "%02d" % GlobalVar.yellow_card
@@ -105,9 +114,10 @@ func _on_Btn_Question_pressed():
 	#$Players.visible = false
 	$Situations.get_child(int(indexes[turn])-1).hide()
 	$Background.visible = true
-	$Btn_Question.visible = false
 	$Question.visible = true
 	$Btn_Back.visible = true
+	
+	$Btn_Question.visible = false
 	$Footer.visible = false
 	$Before_Answer.visible = false
 
@@ -174,7 +184,7 @@ func _on_Btn_Yes_pressed():
 		$Btn_Back.visible = false
 		GlobalVar._aumentar_tarjeta()
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!"
-		print('doesnt work')
+
 
 func load_question():
 
@@ -194,8 +204,8 @@ func load_question():
 	$Question/Options/Option_4/lbl.set_text(_question.get_shuffled_answer(3))
 
 
-	var backs = $Situations.get_children()
-	for node in backs:
+	var backgrounds = $Situations.get_children()
+	for node in backgrounds:
 		node.hide() # start by hiding all BGs
 	$Situations.get_child(int(indexes[turn])-1).show() # unhide the one we want
 	_question.print_me()
@@ -229,17 +239,10 @@ func _on_Btn_Next_pressed():
 		turn += 1 
 		#get_tree().change_scene("")
 		#get_tree().reload_current_scene()
+		$Footer.visible = true
+		$Timer.start()
 		load_question()
-		
-		#time = "00:%02d" % int($Timer.time_left)
-		#cards = "%02d" % GlobalVar.yellow_card
-		#_assign_text()
-		#$Question.visible = true
 		$Answer_Window.visible = false
-		#$Btn_Back.visible = true
-		#$Footer/Card.visible = true
-		#$Footer/Time.visible = true
-		#$Footer/Btn_home.visible = true
 		$Btn_Question.visible = true
 	else:
 		$Final_Score.visible = true
@@ -263,5 +266,10 @@ func _on_Btn_Restart_pressed():
 	pass # Replace with function body.
 
 func _on_Btn_Exit_pressed():
+	salir()
+	pass # Replace with function body.
+
+
+func _on_Btn_Ok_pressed():
 	salir()
 	pass # Replace with function body.

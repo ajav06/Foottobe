@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/images/bg-2.png" type="Texture" id=1]
 [ext_resource path="res://src/images/Pregunta.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/images/Background - 5 (5).png" type="Texture" id=13]
 [ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=14]
 [ext_resource path="res://src/images/Background - 5.png" type="Texture" id=15]
+[ext_resource path="res://src/images/red-card.png" type="Texture" id=16]
 
 [node name="Throw-in" type="Node2D"]
 script = ExtResource( 6 )
@@ -178,18 +179,19 @@ __meta__ = {
 }
 
 [node name="bck" type="TextureRect" parent="Question/Options/Option_1"]
+margin_top = 0.698334
 margin_right = 250.0
-margin_bottom = 84.0
+margin_bottom = 84.6983
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="lbl" type="Label" parent="Question/Options/Option_1"]
-margin_left = 38.0
+margin_left = 29.3016
 margin_top = 13.0
-margin_right = 208.0
-margin_bottom = 71.0
+margin_right = 222.302
+margin_bottom = 74.0
 align = 1
 valign = 1
 __meta__ = {
@@ -215,10 +217,10 @@ __meta__ = {
 }
 
 [node name="lbl" type="Label" parent="Question/Options/Option_2"]
-margin_left = 38.0
+margin_left = 30.0
 margin_top = 13.0
-margin_right = 208.0
-margin_bottom = 71.0
+margin_right = 223.0
+margin_bottom = 74.0
 align = 1
 valign = 1
 __meta__ = {
@@ -244,10 +246,10 @@ __meta__ = {
 }
 
 [node name="lbl" type="Label" parent="Question/Options/Option_3"]
-margin_left = 38.0
+margin_left = 29.3017
 margin_top = 13.0
-margin_right = 208.0
-margin_bottom = 71.0
+margin_right = 222.302
+margin_bottom = 74.0
 align = 1
 valign = 1
 __meta__ = {
@@ -273,10 +275,10 @@ __meta__ = {
 }
 
 [node name="lbl" type="Label" parent="Question/Options/Option_4"]
-margin_left = 38.0
+margin_left = 30.0
 margin_top = 13.0
-margin_right = 208.0
-margin_bottom = 71.0
+margin_right = 223.0
+margin_bottom = 74.0
 align = 1
 valign = 1
 __meta__ = {
@@ -480,6 +482,87 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Disqualification" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Disqualification"]
+margin_left = 240.633
+margin_top = 144.15
+margin_right = 780.633
+margin_bottom = 404.15
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red-Card" type="TextureRect" parent="Disqualification"]
+margin_left = 502.055
+margin_top = 157.907
+margin_right = 738.055
+margin_bottom = 471.907
+rect_scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="Disqualification"]
+margin_left = 347.838
+margin_top = 224.981
+margin_right = 693.838
+margin_bottom = 305.981
+theme = ExtResource( 14 )
+text = "Jugador descalificado"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text2" type="Label" parent="Disqualification"]
+margin_left = 400.333
+margin_top = 184.161
+margin_right = 622.333
+margin_bottom = 259.161
+theme = ExtResource( 14 )
+text = "¡Tarjeta roja!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="waiting_time" type="Label" parent="Disqualification"]
+visible = false
+margin_left = 450.019
+margin_top = 225.501
+margin_right = 571.019
+margin_bottom = 275.501
+theme = ExtResource( 14 )
+text = "00:50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btn_Ok" type="Button" parent="Disqualification"]
+margin_left = 423.675
+margin_top = 303.675
+margin_right = 601.675
+margin_bottom = 387.675
+focus_mode = 0
+theme = ExtResource( 9 )
+enabled_focus_mode = 0
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 31.0
 one_shot = true
@@ -521,6 +604,7 @@ __meta__ = {
 [connection signal="pressed" from="Answer_Window/Btn_Next" to="." method="_on_Btn_Next_pressed"]
 [connection signal="pressed" from="Final_Score/Btn_Restart" to="." method="_on_Btn_Restart_pressed"]
 [connection signal="pressed" from="Final_Score/Btn_Exit" to="." method="_on_Btn_Exit_pressed"]
+[connection signal="pressed" from="Disqualification/Btn_Ok" to="." method="_on_Btn_Ok_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Btn_Question" to="." method="_on_Btn_Question_pressed"]
 [connection signal="pressed" from="Btn_Back" to="." method="_on_Btn_Back_pressed"]

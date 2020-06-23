@@ -22,7 +22,7 @@ func _process(delta):
 
 
 func _calcular_timer():
-	"""
+
 	time_now = OS.get_datetime()
 	limit = time_now
 	$Timer.wait_time = 0
@@ -44,7 +44,7 @@ func _calcular_timer():
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
 			print('HOla bb')
-			"""
+			
 
 
 func _on_Exit_pressed():
