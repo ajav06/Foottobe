@@ -1,6 +1,6 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://src/fonts/BAUHS93.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/fonts/Corbel Bold Italic.ttf" type="DynamicFontData" id=1]
 
 [resource]
 size = 37
