@@ -151,7 +151,7 @@ func _on_Btn_Yes_pressed():
 		$Background2.visible = true
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
-		
+		$Kick_Correct.play()
 		_aumentar_score(10)
 		get_node("Answer_Window/proceed_label").text="¡Buena respuesta!"
 	elif(_question.is_answer_correct(user_ans)==1):
@@ -161,6 +161,7 @@ func _on_Btn_Yes_pressed():
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		_aumentar_score(20)
+		$Kick_Correct.play()
 		get_node("Answer_Window/proceed_label").text="¡Excelente respuesta!"
 	elif(_question.is_answer_correct(user_ans)==3):
 		$Before_Answer.visible = false
@@ -170,6 +171,7 @@ func _on_Btn_Yes_pressed():
 		$Btn_Back.visible = false
 		_aumentar_score(10)
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!"
+		$Kick_Correct.play()
 		#get_tree().reload_current_scene()
 	else:
 		$Before_Answer.visible = false
@@ -177,9 +179,12 @@ func _on_Btn_Yes_pressed():
 		$Background2.visible = true
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
+		if GlobalVar._cant_tarjetas_amarillas() == 1:
+			$Kick_Wrong_Endgame.play()
+		else:
+			$Kick_Wrong.play()
 		GlobalVar._aumentar_tarjeta()
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Incorrecta!"
-
 
 func load_question():
 

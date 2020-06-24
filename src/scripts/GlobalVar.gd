@@ -27,6 +27,9 @@ func _aumentar_tarjeta():
 	if(yellow_card == 2):
 		Game.redcard = 1
 		_penalizacion()
+
+func _cant_tarjetas_amarillas():
+	return yellow_card
 		
 func _penalizacion():
 	time_RedCard = OS.get_datetime()

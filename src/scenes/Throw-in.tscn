@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/images/bg-2.png" type="Texture" id=1]
 [ext_resource path="res://src/images/Pregunta.png" type="Texture" id=2]
@@ -16,6 +16,12 @@
 [ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=14]
 [ext_resource path="res://src/images/Background - 5.png" type="Texture" id=15]
 [ext_resource path="res://src/images/red-card.png" type="Texture" id=16]
+[ext_resource path="res://src/music/playing.wav" type="AudioStream" id=17]
+[ext_resource path="res://src/sfx/crowd.wav" type="AudioStream" id=18]
+[ext_resource path="res://src/sfx/kick_wrong.wav" type="AudioStream" id=19]
+[ext_resource path="res://src/sfx/kick_correct.wav" type="AudioStream" id=20]
+[ext_resource path="res://src/sfx/end_game_time.wav" type="AudioStream" id=21]
+[ext_resource path="res://src/sfx/kick_wrong_endgame.wav" type="AudioStream" id=22]
 
 [node name="Throw-in" type="Node2D"]
 script = ExtResource( 6 )
@@ -595,6 +601,27 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+autoplay = true
+
+[node name="Crowd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+volume_db = -10.367
+autoplay = true
+
+[node name="Kick_Wrong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+
+[node name="Kick_Correct" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+
+[node name="Endgame" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+
+[node name="Kick_Wrong_Endgame" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 22 )
 [connection signal="pressed" from="Footer/Btn_home" to="." method="_on_Btn_home_pressed"]
 [connection signal="pressed" from="Question/Options/Option_1" to="." method="_on_Option_1_pressed"]
 [connection signal="pressed" from="Question/Options/Option_2" to="." method="_on_Option_2_pressed"]
