@@ -181,6 +181,7 @@ autoplay = true
 stream = ExtResource( 10 )
 
 [node name="Learn" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
