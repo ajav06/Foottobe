@@ -7,7 +7,7 @@ var time_timer
 
 func _ready():
 	$Home/Time.text = "00:00"
-	#$Learn/Time2.text = "00:00"
+	$Learn/Time2.text = "00:00"
 	_calcular_timer()
 	$Home/Score.text = "%03d" % Game.bestscore
 	$Home/Faild.text = "%02d / %02d" % [Game.redcard, Game.yellowcard]
@@ -17,7 +17,7 @@ func _ready():
 func _process(_delta):
 	if($Timer.time_left <= 1):
 		$Home/Time.text = "00:00"
-		#$Learn/Time2.text = "00:00"
+		$Learn/Time2.text = "00:00"
 		$Play.disabled = false
 		$TimeOut.play()
 		

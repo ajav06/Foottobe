@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/images/cog-solid-small.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Main.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=8]
 [ext_resource path="res://src/images/exit-small.png" type="Texture" id=9]
 [ext_resource path="res://src/sfx/end_game_time.wav" type="AudioStream" id=10]
+[ext_resource path="res://src/images/bg-2.png" type="Texture" id=11]
+[ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.4, 0.709804, 0.831373, 1 )
@@ -38,7 +40,7 @@ __meta__ = {
 margin_left = 67.0
 margin_top = 508.0
 margin_right = 218.0
-margin_bottom = 578.0
+margin_bottom = 566.0
 focus_mode = 0
 theme = ExtResource( 3 )
 custom_styles/normal = SubResource( 1 )
@@ -52,7 +54,7 @@ __meta__ = {
 margin_left = 93.0
 margin_top = 520.0
 margin_right = 133.0
-margin_bottom = 560.0
+margin_bottom = 578.0
 theme = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,8 +179,62 @@ autoplay = true
 
 [node name="TimeOut" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+
+[node name="Learn" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Window" type="Sprite" parent="Learn"]
+position = Vector2( 539.028, 303.973 )
+scale = Vector2( 0.907664, 1 )
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="Learn"]
+margin_left = 310.0
+margin_top = 188.0
+margin_right = 778.0
+margin_bottom = 314.0
+theme = ExtResource( 12 )
+text = "Perdiste el partido, debes esperar
+ minutos, para volver a 
+jugar, echa un vistazo 
+al glosario para aprender"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time2" type="Label" parent="Learn"]
+margin_left = 356.911
+margin_top = 211.842
+margin_right = 435.911
+margin_bottom = 245.842
+theme = ExtResource( 12 )
+text = "00:50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ok2" type="Button" parent="Learn"]
+margin_left = 470.584
+margin_top = 344.0
+margin_right = 608.584
+margin_bottom = 404.0
+focus_mode = 0
+theme = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Search" to="." method="_on_Search_pressed"]
 [connection signal="pressed" from="Btn_small/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Btn_small/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="request_completed" from="CanvasLayer/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="pressed" from="Learn/Ok2" to="." method="_on_Ok2_pressed"]
