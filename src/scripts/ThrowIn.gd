@@ -111,7 +111,6 @@ func _on_Timer_timeout():
 
 func _on_Btn_home_pressed():
 	get_tree().change_scene("res://src/scenes/Main.tscn")
-	pass
 
 func _on_Option_1_pressed():
 	user_ans = 0
@@ -128,58 +127,51 @@ func _on_Option_3_pressed():
 func _on_Option_4_pressed():
 	user_ans = 3
 	_prompt_and_check()
-	
+
+
 func _prompt_and_check():
 	$Before_Answer.visible = true
 	$Btn_Back.visible = false
 	$Before_Answer/translation.set_text(_question.get_shuffled_translation(user_ans))
 
+
+func show_hide_stuff():
+	$Before_Answer.visible = false
+	$Background.visible = false
+	$Background2.visible = true
+	$Answer_Window.visible = true
+	$Btn_Back.visible = false
+
 func _on_Btn_No_pressed():
 	$Before_Answer.visible = false
-	$Answer_Window.visible = false
-	$Question.visible = true
 	$Btn_Back.visible = true
+	$Question.visible = true
+	$Answer_Window.visible = false
 
 func _on_Btn_Yes_pressed():
 	$Before_Answer.visible = false
-	$Question.visible = false
 	$Btn_Back.visible = true
+	$Question.visible = false
 	$Answer_Window/translation.set_text(_question.get_shuffled_translation(user_ans))
 	
 	if(_question.is_answer_correct(user_ans)==0):
-		$Before_Answer.visible = false
-		$Background.visible = false
-		$Background2.visible = true
-		$Answer_Window.visible = true
-		$Btn_Back.visible = false
+		show_hide_stuff()
 		$Kick_Correct.play()
 		_aumentar_score(10)
 		get_node("Answer_Window/proceed_label").text="¡Buena respuesta!"
 	elif(_question.is_answer_correct(user_ans)==1):
-		$Before_Answer.visible = false
-		$Background.visible = false
-		$Background2.visible = true
-		$Answer_Window.visible = true
-		$Btn_Back.visible = false
+		show_hide_stuff()
 		_aumentar_score(20)
 		$Kick_Correct.play()
 		get_node("Answer_Window/proceed_label").text="¡Excelente respuesta!"
 	elif(_question.is_answer_correct(user_ans)==3):
-		$Before_Answer.visible = false
-		$Background.visible = false
-		$Background2.visible = true
-		$Answer_Window.visible = true
-		$Btn_Back.visible = false
+		show_hide_stuff()
 		_aumentar_score(10)
 		get_node("Answer_Window/proceed_label").text="¡Respuesta Correcta!"
 		$Kick_Correct.play()
 		#get_tree().reload_current_scene()
 	else:
-		$Before_Answer.visible = false
-		$Background.visible = false
-		$Background2.visible = true
-		$Answer_Window.visible = true
-		$Btn_Back.visible = false
+		show_hide_stuff()
 		if GlobalVar._cant_tarjetas_amarillas() == 1:
 			$Kick_Wrong_Endgame.play()
 		else:
@@ -241,59 +233,42 @@ func _on_Btn_Next_pressed():
 		$Answer_Window.visible = false
 		$Final_Score/final_score.text = str(GlobalVar.score)
 		print('Game Over')
-	pass # Replace with function body.
 
 
 func salir():
 	resetting_values()
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 
-
 func _on_Btn_Restart_pressed():
 	resetting_values()
 	get_tree().change_scene("res://src/scenes/Throw-in.tscn")
-	pass # Replace with function body.
 
 func _on_Btn_Exit_pressed():
 	salir()
-	pass # Replace with function body.
 
 
 func _on_Btn_Ok_pressed():
 	GlobalVar.test = true
 	salir()
-	pass # Replace with function body.
+
+func _update_display(is_mode_a):
+	$Situations.get_child(int(indexes[turn])-1).visible = is_mode_a
+	$Background.visible = !is_mode_a
+	$Question.visible = !is_mode_a
+	$Btn_Back.visible = !is_mode_a
+
+	$Btn_Question.visible = is_mode_a
+	$Footer.visible = is_mode_a
+	
+	#$Answer_Window.visible = !is_mode_a
+
+	#$Before_Answer.visible = !is_mode_a	
 
 func _on_Btn_Back_pressed():
-	#$Players.visible = true
-	$Situations.get_child(int(indexes[turn])-1).show()
-	$Background.visible = false
-	$Question.visible = false
-	$Btn_Back.visible = false
-
-	$Btn_Question.visible = true
-	$Footer.visible = true
+	_update_display(true)
 	$Answer_Window.visible = false
 		
 func _on_Btn_Question_pressed():
-	#$Players.visible = false
-	$Situations.get_child(int(indexes[turn])-1).hide()
-	$Background.visible = true
-	$Question.visible = true
-	$Btn_Back.visible = true
-			
-	$Btn_Question.visible = false
-	$Footer.visible = false
+	_update_display(false)
 	$Before_Answer.visible = false
-			
-
-	"""
-func _on_background_changed(flip = false):
-	$Background.visible = false if not flip else true
-	$Question.visible = false if not flip else true
-	$Btn_Back.visible = false if not flip else true
-	#$Btn_Question.visible = true
-	#$Footer.visible = true
-	#$Answer_Window.visible = false
-	pass # Replace with function body.
-	"""
+	
