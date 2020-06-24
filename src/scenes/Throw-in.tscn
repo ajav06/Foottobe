@@ -3,7 +3,7 @@
 [ext_resource path="res://src/images/bg-2.png" type="Texture" id=1]
 [ext_resource path="res://src/images/Pregunta.png" type="Texture" id=2]
 [ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=3]
-[ext_resource path="res://src/images/bg.png" type="Texture" id=4]
+[ext_resource path="res://src/images/Background - 7.png" type="Texture" id=4]
 [ext_resource path="res://src/images/Background - 5 (2).png" type="Texture" id=5]
 [ext_resource path="res://src/scripts/ThrowIn.gd" type="Script" id=6]
 [ext_resource path="res://src/images/Background - 6.png" type="Texture" id=7]
@@ -24,6 +24,11 @@ script = ExtResource( 6 )
 visible = false
 position = Vector2( 512, 300 )
 texture = ExtResource( 7 )
+
+[node name="Background2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 512, 300 )
+texture = ExtResource( 4 )
 
 [node name="Players" type="Sprite" parent="."]
 visible = false
@@ -289,28 +294,27 @@ __meta__ = {
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="TextureRect" parent="Before_Answer"]
-margin_left = 214.0
+margin_left = 242.0
 margin_top = 170.0
-margin_right = 822.498
-margin_bottom = 459.052
-texture = ExtResource( 4 )
-expand = true
+margin_right = 782.0
+margin_bottom = 430.0
+texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Btn_Yes" type="Button" parent="Before_Answer"]
-margin_left = 270.047
-margin_top = 341.396
-margin_right = 448.047
-margin_bottom = 415.396
+margin_left = 282.0
+margin_top = 321.0
+margin_right = 460.0
+margin_bottom = 401.0
 focus_mode = 0
-theme = ExtResource( 9 )
 enabled_focus_mode = 0
 text = "Yes"
 __meta__ = {
@@ -318,12 +322,11 @@ __meta__ = {
 }
 
 [node name="Btn_No" type="Button" parent="Before_Answer"]
-margin_left = 593.007
-margin_top = 342.296
-margin_right = 771.007
-margin_bottom = 416.296
+margin_left = 568.0
+margin_top = 321.0
+margin_right = 746.0
+margin_bottom = 401.0
 focus_mode = 0
-theme = ExtResource( 9 )
 enabled_focus_mode = 0
 text = "No"
 __meta__ = {
@@ -331,10 +334,10 @@ __meta__ = {
 }
 
 [node name="msg2" type="Label" parent="Before_Answer"]
-margin_left = 316.358
-margin_top = 253.811
-margin_right = 719.358
-margin_bottom = 342.811
+margin_left = 311.358
+margin_top = 245.811
+margin_right = 714.358
+margin_bottom = 334.811
 theme = ExtResource( 14 )
 text = "¿Seguro?
 "
@@ -345,10 +348,10 @@ __meta__ = {
 }
 
 [node name="translation" type="Label" parent="Before_Answer"]
-margin_left = 321.1
-margin_top = 182.925
-margin_right = 724.1
-margin_bottom = 271.925
+margin_left = 312.1
+margin_top = 183.925
+margin_right = 715.1
+margin_bottom = 272.925
 theme = ExtResource( 14 )
 align = 1
 valign = 1
@@ -365,20 +368,20 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="Answer_Window"]
-margin_left = 238.3
-margin_top = 144.15
-margin_right = 778.3
-margin_bottom = 404.15
+margin_left = 242.0
+margin_top = 170.0
+margin_right = 782.0
+margin_bottom = 430.0
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="proceed_label" type="Label" parent="Answer_Window"]
-margin_left = 306.96
-margin_top = 257.565
-margin_right = 709.96
-margin_bottom = 346.565
+margin_left = 313.0
+margin_top = 292.0
+margin_right = 716.0
+margin_bottom = 381.0
 theme = ExtResource( 14 )
 text = "
 "
@@ -389,10 +392,10 @@ __meta__ = {
 }
 
 [node name="translation" type="Label" parent="Answer_Window"]
-margin_left = 302.528
-margin_top = 155.065
-margin_right = 705.528
-margin_bottom = 244.065
+margin_left = 313.0
+margin_top = 188.0
+margin_right = 716.0
+margin_bottom = 277.0
 theme = ExtResource( 14 )
 align = 1
 valign = 1
@@ -402,9 +405,9 @@ __meta__ = {
 
 [node name="Btn_Next" type="Button" parent="Answer_Window"]
 margin_left = 423.0
-margin_top = 505.0
+margin_top = 507.0
 margin_right = 601.0
-margin_bottom = 589.0
+margin_bottom = 587.0
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
@@ -417,25 +420,26 @@ __meta__ = {
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="TextureRect" parent="Final_Score"]
-margin_left = 238.3
-margin_top = 144.15
-margin_right = 778.3
-margin_bottom = 404.15
+margin_left = 242.0
+margin_top = 170.0
+margin_right = 782.0
+margin_bottom = 430.0
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="score" type="Label" parent="Final_Score"]
-margin_left = 302.528
-margin_top = 155.065
-margin_right = 705.528
-margin_bottom = 244.065
+margin_left = 313.0
+margin_top = 175.0
+margin_right = 716.0
+margin_bottom = 264.0
 theme = ExtResource( 14 )
 text = "Final Score"
 align = 1
@@ -445,9 +449,9 @@ __meta__ = {
 }
 
 [node name="final_score" type="Label" parent="Final_Score"]
-margin_left = 307.0
+margin_left = 313.0
 margin_top = 229.0
-margin_right = 710.0
+margin_right = 716.0
 margin_bottom = 307.0
 theme = ExtResource( 14 )
 align = 1
@@ -457,12 +461,11 @@ __meta__ = {
 }
 
 [node name="Btn_Restart" type="Button" parent="Final_Score"]
-margin_left = 554.781
-margin_top = 305.757
-margin_right = 732.781
-margin_bottom = 389.757
+margin_left = 568.0
+margin_top = 321.0
+margin_right = 746.0
+margin_bottom = 401.0
 focus_mode = 0
-theme = ExtResource( 9 )
 enabled_focus_mode = 0
 text = "Restart"
 __meta__ = {
@@ -470,12 +473,11 @@ __meta__ = {
 }
 
 [node name="Btn_Exit" type="Button" parent="Final_Score"]
-margin_left = 286.675
-margin_top = 303.675
-margin_right = 464.675
-margin_bottom = 387.675
+margin_left = 282.0
+margin_top = 321.0
+margin_right = 460.0
+margin_bottom = 401.0
 focus_mode = 0
-theme = ExtResource( 9 )
 enabled_focus_mode = 0
 text = "Quit"
 __meta__ = {
@@ -486,37 +488,37 @@ __meta__ = {
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="TextureRect" parent="Disqualification"]
-margin_left = 240.633
-margin_top = 144.15
-margin_right = 780.633
-margin_bottom = 404.15
+margin_left = 242.0
+margin_top = 170.0
+margin_right = 782.0
+margin_bottom = 430.0
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Red-Card" type="TextureRect" parent="Disqualification"]
-margin_left = 502.055
-margin_top = 157.907
-margin_right = 738.055
-margin_bottom = 471.907
-rect_scale = Vector2( 0.1, 0.1 )
+margin_left = 495.0
+margin_top = 188.0
+margin_right = 731.0
+margin_bottom = 502.0
+rect_scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="text" type="Label" parent="Disqualification"]
-margin_left = 347.838
-margin_top = 224.981
-margin_right = 693.838
-margin_bottom = 305.981
-theme = ExtResource( 14 )
+margin_left = 396.0
+margin_top = 284.0
+margin_right = 629.0
+margin_bottom = 310.0
 text = "Jugador descalificado"
 align = 1
 valign = 1
@@ -525,11 +527,10 @@ __meta__ = {
 }
 
 [node name="text2" type="Label" parent="Disqualification"]
-margin_left = 400.333
-margin_top = 184.161
-margin_right = 622.333
-margin_bottom = 259.161
-theme = ExtResource( 14 )
+margin_left = 443.0
+margin_top = 244.0
+margin_right = 583.0
+margin_bottom = 270.0
 text = "¡Tarjeta roja!"
 align = 1
 valign = 1
@@ -552,12 +553,11 @@ __meta__ = {
 }
 
 [node name="Btn_Ok" type="Button" parent="Disqualification"]
-margin_left = 423.675
-margin_top = 303.675
-margin_right = 601.675
-margin_bottom = 387.675
+margin_left = 423.0
+margin_top = 332.0
+margin_right = 601.0
+margin_bottom = 412.0
 focus_mode = 0
-theme = ExtResource( 9 )
 enabled_focus_mode = 0
 text = "Ok"
 __meta__ = {
@@ -571,9 +571,9 @@ autostart = true
 
 [node name="Btn_Question" type="Button" parent="."]
 margin_left = 423.0
-margin_top = 505.0
+margin_top = 507.0
 margin_right = 601.0
-margin_bottom = 589.0
+margin_bottom = 587.0
 focus_mode = 0
 theme = ExtResource( 9 )
 enabled_focus_mode = 0
@@ -585,7 +585,7 @@ __meta__ = {
 [node name="Btn_Back" type="Button" parent="."]
 visible = false
 margin_left = 423.0
-margin_top = 513.0
+margin_top = 507.0
 margin_right = 601.0
 margin_bottom = 587.0
 focus_mode = 0

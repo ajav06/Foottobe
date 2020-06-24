@@ -75,14 +75,10 @@ func resetting_values():
 func _process(_delta):
 	if(GlobalVar.yellow_card >= 2):
 		resetting_values()
+		$Background.visible = false
+		$Background2.visible = true
 		$Disqualification.visible = true
 		$Answer_Window/Btn_Next.visible = false
-		
-		#$Disqualification/waiting_time.text = "00:00"
-		#$Disqualification/waiting_time.text = "%02d:%02d" % [Main.time_timer/60, Main.time_timer%60]
-		#$Background.visible = false
-		#$Situations.get_child(int(indexes[turn])-1).show()
-		#get_tree().change_scene("res://src/scenes/Main.tscn")
 	
 	time = "00:%02d" % int($Timer.time_left)
 	cards = "%02d" % GlobalVar.yellow_card
@@ -151,6 +147,8 @@ func _on_Btn_Yes_pressed():
 	
 	if(_question.is_answer_correct(user_ans)==0):
 		$Before_Answer.visible = false
+		$Background.visible = false
+		$Background2.visible = true
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		
@@ -158,12 +156,16 @@ func _on_Btn_Yes_pressed():
 		get_node("Answer_Window/proceed_label").text="¡Buena respuesta!"
 	elif(_question.is_answer_correct(user_ans)==1):
 		$Before_Answer.visible = false
+		$Background.visible = false
+		$Background2.visible = true
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		_aumentar_score(20)
 		get_node("Answer_Window/proceed_label").text="¡Excelente respuesta!"
 	elif(_question.is_answer_correct(user_ans)==3):
 		$Before_Answer.visible = false
+		$Background.visible = false
+		$Background2.visible = true
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		_aumentar_score(10)
@@ -171,6 +173,8 @@ func _on_Btn_Yes_pressed():
 		#get_tree().reload_current_scene()
 	else:
 		$Before_Answer.visible = false
+		$Background.visible = false
+		$Background2.visible = true
 		$Answer_Window.visible = true
 		$Btn_Back.visible = false
 		GlobalVar._aumentar_tarjeta()
@@ -219,6 +223,8 @@ func _on_Btn_Next_pressed():
 		turn += 1 
 		#get_tree().change_scene("")
 		#get_tree().reload_current_scene()
+		$Background2.visible = false
+		$Background.visible = true
 		$Footer.visible = true
 		$Timer.start()
 		load_question()
@@ -248,6 +254,7 @@ func _on_Btn_Exit_pressed():
 
 
 func _on_Btn_Ok_pressed():
+	GlobalVar.test = true
 	salir()
 	pass # Replace with function body.
 

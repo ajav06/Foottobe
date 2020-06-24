@@ -3,7 +3,7 @@ extends Node
 var yellow_card = 0
 var time_RedCard
 var score = 0
-
+var test = false
 
 func _ready():
 	yellow_card = 0;

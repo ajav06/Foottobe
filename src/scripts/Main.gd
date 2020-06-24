@@ -4,22 +4,27 @@ var time_now = 0
 var limit = 0
 var time_timer
 
+
 func _ready():
 	$Home/Time.text = "00:00"
+	$Learn/Time2.text = "00:00"
 	_calcular_timer()
 	$Home/Score.text = "%03d" % Game.bestscore
 	$Home/Faild.text = "%02d / %02d" % [Game.redcard, Game.yellowcard]
+	if(GlobalVar.test == true):
+		$Learn.visible = true
 
 func _process(_delta):
 	if($Timer.time_left <= 1):
 		$Home/Time.text = "00:00"
+		$Learn/Time2.text = "00:00"
 		$Play.disabled = false
 	
 	elif($Timer.time_left >= 1):
 		$Play.disabled = true
 		time_timer = int($Timer.time_left)
-		$Home/Time.text = "%02d:%02d" % [time_timer/60, time_timer%60]
-
+		$Home/Time.text = "%02d:%02d" % [time_timer/60, time_timer%60]	
+		$Learn/Time2.text = "%02d:%02d" % [time_timer/60, time_timer%60]
 
 func _calcular_timer():
 	"""
@@ -44,7 +49,7 @@ func _calcular_timer():
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
 			print('HOla bb')
-	"""		
+	"""	
 
 
 func _on_Exit_pressed():
@@ -76,3 +81,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		s.set_align(1)
 		lista_s.add_child(s)
 	$".".add_child(g)
+
+func _on_Ok2_pressed():
+	$Learn.visible = false
+	pass # Replace with function body.
