@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/themes/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/images/bg-5.png" type="Texture" id=2]
+[ext_resource path="res://src/scripts/Glossary.gd" type="Script" id=3]
+[ext_resource path="res://src/themes/theme_lbl_glosario.tres" type="Theme" id=4]
+
+[node name="Glossary" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512.251, 299.874 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 418.217
+margin_top = 507.567
+margin_right = 596.217
+margin_bottom = 587.567
+theme = ExtResource( 1 )
+text = "Atrás"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Glossary" type="Control" parent="."]
+margin_left = 477.777
+margin_top = 215.307
+margin_right = 517.777
+margin_bottom = 255.307
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Glossary"]
+anchor_left = 6.944
+anchor_top = -1.937
+anchor_right = 6.944
+anchor_bottom = -1.937
+margin_left = -385.73
+margin_top = -124.52
+margin_right = -100.73
+margin_bottom = -61.52
+theme = ExtResource( 1 )
+text = "Aprende inglés"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Glossary"]
+margin_left = -289.416
+margin_top = -125.505
+margin_right = 316.584
+margin_bottom = 212.495
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 606, 338 )
+rect_scale = Vector2( 1.07318, 1.07318 )
+size_flags_horizontal = 4
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Glossary/ScrollContainer"]
+margin_right = 606.0
+margin_bottom = 338.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VBPalabra" type="VBoxContainer" parent="Glossary/ScrollContainer/HBoxContainer"]
+margin_right = 301.0
+margin_bottom = 338.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Glossary/ScrollContainer/HBoxContainer/VBPalabra"]
+margin_right = 301.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Palabra"
+align = 1
+
+[node name="VBSignificado" type="VBoxContainer" parent="Glossary/ScrollContainer/HBoxContainer"]
+margin_left = 305.0
+margin_right = 606.0
+margin_bottom = 338.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+
+[node name="Label3" type="Label" parent="Glossary/ScrollContainer/HBoxContainer/VBSignificado"]
+margin_right = 301.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Significado"
+align = 1
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -62,9 +62,9 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="Credits"]
 margin_left = 453.0
-margin_top = 76.0
-margin_right = 572.0
-margin_bottom = 119.0
+margin_top = 65.0
+margin_right = 578.0
+margin_bottom = 125.0
 theme = ExtResource( 2 )
 text = "Credits"
 align = 1

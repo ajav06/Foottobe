@@ -56,3 +56,23 @@ func _on_Play_pressed():
 
 func _on_Settings_pressed():
 	get_tree().change_scene("res://src/scenes/Settings.tscn")
+
+func _on_Search_pressed():
+	$CanvasLayer/HTTPRequest.request("http://foottobe.herokuapp.com/api/glosario")
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	var glosario = JSON.parse(body.get_string_from_utf8()).result
+	var escena = load("res://src/scenes/Glossary.tscn")
+	var g = escena.instance()
+	var lista_p = g.get_node("Glossary/ScrollContainer/HBoxContainer/VBPalabra")	
+	var lista_s = g.get_node("Glossary/ScrollContainer/HBoxContainer/VBSignificado")
+	for palabra in glosario['glosario']:
+		var p = Label.new()
+		p.set_text(palabra['palabra'])
+		p.set_align(1)
+		lista_p.add_child(p)
+		var s = Label.new()
+		s.set_text(palabra['significado'])
+		s.set_align(1)
+		lista_s.add_child(s)
+	$".".add_child(g)

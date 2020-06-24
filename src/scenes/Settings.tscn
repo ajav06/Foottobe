@@ -21,10 +21,11 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="Settings"]
-margin_left = 449.5
-margin_top = 100.0
-margin_right = 575.5
-margin_bottom = 143.0
+margin_left = 422.881
+margin_top = 86.422
+margin_right = 592.881
+margin_bottom = 152.422
+theme = ExtResource( 2 )
 text = "Settings"
 align = 1
 valign = 1
