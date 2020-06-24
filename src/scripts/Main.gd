@@ -19,6 +19,7 @@ func _process(_delta):
 		$Home/Time.text = "00:00"
 		#$Learn/Time2.text = "00:00"
 		$Play.disabled = false
+		$TimeOut.play()
 		
 	
 	elif($Timer.time_left >= 1):

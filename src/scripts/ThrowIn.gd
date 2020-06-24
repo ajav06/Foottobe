@@ -106,6 +106,7 @@ func _assign_text():
 	$Question/Card.text = cards
 
 func _on_Timer_timeout():
+	$Endgame.play()
 	get_tree().change_scene("res://src/scenes/Main.tscn")
 
 func _on_Btn_home_pressed():
