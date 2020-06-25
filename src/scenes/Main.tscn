@@ -181,6 +181,7 @@ autoplay = true
 stream = ExtResource( 10 )
 
 [node name="Learn" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -194,9 +195,9 @@ texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Learn"]
 margin_left = 294.108
-margin_top = 170.0
+margin_top = 173.0
 margin_right = 748.108
-margin_bottom = 296.0
+margin_bottom = 299.0
 theme = ExtResource( 12 )
 text = "¡Ha terminado tu partido! Debes esperar 
        para volver a jugar. Mientras tanto, 
@@ -209,9 +210,9 @@ __meta__ = {
 
 [node name="Time2" type="Label" parent="Learn"]
 margin_left = 297.111
-margin_top = 195.792
+margin_top = 198.792
 margin_right = 376.111
-margin_bottom = 229.792
+margin_bottom = 232.792
 theme = ExtResource( 12 )
 text = "00:50"
 align = 1
