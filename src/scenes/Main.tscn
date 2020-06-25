@@ -193,25 +193,25 @@ scale = Vector2( 0.907664, 1 )
 texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Learn"]
-margin_left = 292.0
-margin_top = 171.0
-margin_right = 760.0
-margin_bottom = 297.0
+margin_left = 294.108
+margin_top = 170.0
+margin_right = 748.108
+margin_bottom = 296.0
 theme = ExtResource( 12 )
-text = "Perdiste el partido, debes esperar
- minutos, para volver a 
-jugar, echa un vistazo 
-al glosario para aprender"
+text = "¡Ha terminado tu partido! Debes esperar 
+       para volver a jugar. Mientras tanto, 
+¿por qué no le echas un vistazo al glosario 
+para aprender inglés?"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Time2" type="Label" parent="Learn"]
-margin_left = 338.911
-margin_top = 194.842
-margin_right = 417.911
-margin_bottom = 228.842
+margin_left = 297.111
+margin_top = 195.792
+margin_right = 376.111
+margin_bottom = 229.792
 theme = ExtResource( 12 )
 text = "00:50"
 align = 1
