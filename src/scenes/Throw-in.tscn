@@ -4,12 +4,12 @@
 [ext_resource path="res://src/images/Pregunta.png" type="Texture" id=2]
 [ext_resource path="res://src/themes/theme_lbl_30.tres" type="Theme" id=3]
 [ext_resource path="res://src/images/Background - 7.png" type="Texture" id=4]
-[ext_resource path="res://src/images/Background - 5 (2).png" type="Texture" id=5]
+[ext_resource path="res://src/images/Free-throw.png" type="Texture" id=5]
 [ext_resource path="res://src/scripts/ThrowIn.gd" type="Script" id=6]
 [ext_resource path="res://src/images/Background - 6.png" type="Texture" id=7]
 [ext_resource path="res://src/images/yellow-card.png" type="Texture" id=8]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=9]
-[ext_resource path="res://src/images/Background - 5 (3).png" type="Texture" id=10]
+[ext_resource path="res://src/images/KickOff.png" type="Texture" id=10]
 [ext_resource path="res://src/images/Background - 5 (4).png" type="Texture" id=11]
 [ext_resource path="res://src/images/home-small.png" type="Texture" id=12]
 [ext_resource path="res://src/images/Background - 5 (5).png" type="Texture" id=13]
@@ -50,11 +50,11 @@ texture = ExtResource( 15 )
 
 [node name="Background2" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="Background3" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 10 )
+texture = ExtResource( 5 )
 
 [node name="Background4" type="Sprite" parent="Situations"]
 visible = false

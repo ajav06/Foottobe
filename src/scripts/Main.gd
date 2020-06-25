@@ -29,7 +29,7 @@ func _process(_delta):
 		$Learn/Time2.text = "%02d:%02d" % [time_timer/60, time_timer%60]
 
 func _calcular_timer():
-	"""
+	
 	time_now = OS.get_datetime()
 	limit = time_now
 	$Timer.wait_time = 0
@@ -39,19 +39,19 @@ func _calcular_timer():
 			
 		if(limit['hour'] == 0):
 			limit['minute'] = Game.timeRedCard['minute'] - time_now['minute']
-			limit['minute'] *=60
+			limit['minute'] *=30
 			limit['second'] = Game.timeRedCard['second'] - time_now['second'] + limit['minute']
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
 			
 		elif(limit['hour'] == 1):
-			limit['minute'] = 60 - time_now['minute'] + Game.timeRedCard['minute']
-			limit['minute'] *=60
+			limit['minute'] = 30 - time_now['minute'] + Game.timeRedCard['minute']
+			limit['minute'] *=30
 			limit['second'] = Game.timeRedCard['second'] - time_now['second'] + limit['minute']
 			$Timer.wait_time = float(limit['second'])
 			$Timer.start()
 			print('HOla bb')
-	"""	
+		
 
 
 func _on_Exit_pressed():

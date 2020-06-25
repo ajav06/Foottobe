@@ -181,7 +181,6 @@ autoplay = true
 stream = ExtResource( 10 )
 
 [node name="Learn" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -189,15 +188,15 @@ __meta__ = {
 }
 
 [node name="Window" type="Sprite" parent="Learn"]
-position = Vector2( 539.028, 303.973 )
+position = Vector2( 521.028, 286.973 )
 scale = Vector2( 0.907664, 1 )
 texture = ExtResource( 11 )
 
 [node name="Label" type="Label" parent="Learn"]
-margin_left = 310.0
-margin_top = 188.0
-margin_right = 778.0
-margin_bottom = 314.0
+margin_left = 292.0
+margin_top = 171.0
+margin_right = 760.0
+margin_bottom = 297.0
 theme = ExtResource( 12 )
 text = "Perdiste el partido, debes esperar
  minutos, para volver a 
@@ -209,10 +208,10 @@ __meta__ = {
 }
 
 [node name="Time2" type="Label" parent="Learn"]
-margin_left = 356.911
-margin_top = 211.842
-margin_right = 435.911
-margin_bottom = 245.842
+margin_left = 338.911
+margin_top = 194.842
+margin_right = 417.911
+margin_bottom = 228.842
 theme = ExtResource( 12 )
 text = "00:50"
 align = 1
@@ -222,10 +221,10 @@ __meta__ = {
 }
 
 [node name="Ok2" type="Button" parent="Learn"]
-margin_left = 470.584
-margin_top = 344.0
-margin_right = 608.584
-margin_bottom = 404.0
+margin_left = 452.584
+margin_top = 327.0
+margin_right = 590.584
+margin_bottom = 387.0
 focus_mode = 0
 theme = ExtResource( 3 )
 enabled_focus_mode = 0
