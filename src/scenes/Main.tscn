@@ -180,24 +180,38 @@ autoplay = true
 [node name="TimeOut" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 
-[node name="Learn" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Popup" type="Popup" parent="."]
+margin_left = 276.0
+margin_top = 155.0
+margin_right = 768.0
+margin_bottom = 416.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Window" type="Sprite" parent="Learn"]
-position = Vector2( 521.028, 286.973 )
+[node name="Window" type="Sprite" parent="Popup"]
+position = Vector2( 245.028, 131.973 )
 scale = Vector2( 0.907664, 1 )
 texture = ExtResource( 11 )
 
-[node name="Label" type="Label" parent="Learn"]
-margin_left = 294.108
-margin_top = 173.0
-margin_right = 748.108
-margin_bottom = 299.0
+[node name="Ok2" type="Button" parent="Popup"]
+margin_left = 176.584
+margin_top = 172.0
+margin_right = 314.584
+margin_bottom = 232.0
+focus_mode = 0
+theme = ExtResource( 3 )
+enabled_focus_mode = 0
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Popup"]
+margin_left = 18.108
+margin_top = 18.0
+margin_right = 472.108
+margin_bottom = 144.0
 theme = ExtResource( 12 )
 text = "¡Ha terminado tu partido! Debes esperar 
        para volver a jugar. Mientras tanto, 
@@ -208,11 +222,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Time2" type="Label" parent="Learn"]
-margin_left = 297.111
-margin_top = 198.792
-margin_right = 376.111
-margin_bottom = 232.792
+[node name="Time2" type="Label" parent="Popup"]
+margin_left = 21.111
+margin_top = 43.792
+margin_right = 100.111
+margin_bottom = 77.792
 theme = ExtResource( 12 )
 text = "00:50"
 align = 1
@@ -221,15 +235,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ok2" type="Button" parent="Learn"]
-margin_left = 452.584
-margin_top = 327.0
-margin_right = 590.584
-margin_bottom = 387.0
-focus_mode = 0
-theme = ExtResource( 3 )
-enabled_focus_mode = 0
-text = "Ok"
+[node name="Learn" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -238,4 +247,4 @@ __meta__ = {
 [connection signal="pressed" from="Btn_small/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Btn_small/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="request_completed" from="CanvasLayer/HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
-[connection signal="pressed" from="Learn/Ok2" to="." method="_on_Ok2_pressed"]
+[connection signal="pressed" from="Popup/Ok2" to="." method="_on_Ok2_pressed"]

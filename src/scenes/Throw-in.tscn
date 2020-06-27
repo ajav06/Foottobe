@@ -10,9 +10,9 @@
 [ext_resource path="res://src/images/yellow-card.png" type="Texture" id=8]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=9]
 [ext_resource path="res://src/images/KickOff.png" type="Texture" id=10]
-[ext_resource path="res://src/images/Background - 5 (4).png" type="Texture" id=11]
+[ext_resource path="res://src/images/Penal.png" type="Texture" id=11]
 [ext_resource path="res://src/images/home-small.png" type="Texture" id=12]
-[ext_resource path="res://src/images/Background - 5 (5).png" type="Texture" id=13]
+[ext_resource path="res://src/images/1v1.png" type="Texture" id=13]
 [ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=14]
 [ext_resource path="res://src/images/Background - 5.png" type="Texture" id=15]
 [ext_resource path="res://src/images/red-card.png" type="Texture" id=16]
@@ -58,11 +58,11 @@ texture = ExtResource( 5 )
 
 [node name="Background4" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 
 [node name="Background5" type="Sprite" parent="Situations"]
 visible = false
-texture = ExtResource( 13 )
+texture = ExtResource( 11 )
 
 [node name="Footer" type="Control" parent="."]
 margin_right = 40.0
