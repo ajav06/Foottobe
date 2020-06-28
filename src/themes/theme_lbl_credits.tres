@@ -55,7 +55,7 @@ corner_radius_bottom_left = 10
 size = 24
 outline_size = 2
 outline_color = Color( 0.772549, 0.772549, 0.772549, 1 )
-extra_spacing_top = 8
+extra_spacing_top = 5
 font_data = ExtResource( 1 )
 
 [resource]
@@ -73,7 +73,7 @@ Button/styles/pressed = SubResource( 5 )
 Label/colors/font_color = Color( 0.027451, 0.027451, 0.027451, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-Label/constants/line_spacing = 3
+Label/constants/line_spacing = 0
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1

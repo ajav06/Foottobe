@@ -53,23 +53,24 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Glossary"]
-margin_left = -289.416
-margin_top = -125.505
-margin_right = 316.584
-margin_bottom = 212.495
+margin_left = -335.0
+margin_top = -127.0
+margin_right = 351.0
+margin_bottom = 224.0
 grow_horizontal = 0
 grow_vertical = 0
 rect_min_size = Vector2( 606, 338 )
 rect_scale = Vector2( 1.07318, 1.07318 )
-size_flags_horizontal = 4
-size_flags_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Glossary/ScrollContainer"]
-margin_right = 606.0
-margin_bottom = 338.0
+margin_right = 686.0
+margin_bottom = 351.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -77,14 +78,13 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="VBPalabra" type="VBoxContainer" parent="Glossary/ScrollContainer/HBoxContainer"]
-margin_right = 301.0
-margin_bottom = 338.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_left = 168.0
+margin_right = 312.0
+margin_bottom = 351.0
 theme = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Glossary/ScrollContainer/HBoxContainer/VBPalabra"]
-margin_right = 301.0
+margin_right = 144.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
@@ -92,15 +92,13 @@ text = "Palabra"
 align = 1
 
 [node name="VBSignificado" type="VBoxContainer" parent="Glossary/ScrollContainer/HBoxContainer"]
-margin_left = 305.0
-margin_right = 606.0
-margin_bottom = 338.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_left = 316.0
+margin_right = 518.0
+margin_bottom = 351.0
 theme = ExtResource( 4 )
 
 [node name="Label3" type="Label" parent="Glossary/ScrollContainer/HBoxContainer/VBSignificado"]
-margin_right = 301.0
+margin_right = 202.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )

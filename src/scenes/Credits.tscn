@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/images/Background - 4.png" type="Texture" id=1]
 [ext_resource path="res://src/themes/theme.tres" type="Theme" id=2]
 [ext_resource path="res://src/scripts/Credits.gd" type="Script" id=3]
 [ext_resource path="res://src/themes/theme_lbl_25.tres" type="Theme" id=4]
+[ext_resource path="res://src/themes/theme_lbl_credits.tres" type="Theme" id=5]
+[ext_resource path="res://src/sfx/crowd.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/music/playing.wav" type="AudioStream" id=7]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource( 3 )
@@ -22,18 +25,20 @@ __meta__ = {
 }
 
 [node name="Credits_1" type="Label" parent="Credits"]
-margin_left = 249.0
-margin_top = 140.0
-margin_right = 475.0
-margin_bottom = 393.0
-text = "DESARROLLADO POR
-FTB TECH:
+margin_left = 231.0
+margin_top = 128.0
+margin_right = 457.0
+margin_bottom = 381.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+custom_colors/font_outline_modulate = Color( 0.772549, 0.772549, 0.772549, 1 )
+text = "Desarrollado Por:
+Hydra Soft
 
-Albert A.
-Gabriel R.
-Anyeli V.
-Dany K.
-Frey S."
+Albert Acevedo
+Gabriel Roa
+Anyeli Villarreal
+Dany Karam"
 align = 1
 valign = 1
 __meta__ = {
@@ -41,19 +46,22 @@ __meta__ = {
 }
 
 [node name="Credits_2" type="Label" parent="Credits"]
-margin_left = 488.0
-margin_top = 140.0
-margin_right = 781.0
-margin_bottom = 425.0
-text = "EN EL MARCO DEL
-PROYECTO DE GRADO DE:
+margin_left = 445.948
+margin_top = 116.844
+margin_right = 812.948
+margin_bottom = 437.844
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+custom_colors/font_outline_modulate = Color( 0.772549, 0.772549, 0.772549, 1 )
+text = "Idea original:
 
-Ramón N.
-Alejandro N.
+Ramón Medina
+Alejandro Leiciaga
+José Ramallo
 
-Tesis De Gerencia
-Deportiva De
-FIFA-CIES"
+Trabajo Final del Diplomado
+Internacional de Gerencia 
+Deportiva FIFA/CIES - Cohorte X"
 align = 1
 valign = 1
 __meta__ = {
@@ -85,4 +93,13 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.612
+autoplay = true
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
