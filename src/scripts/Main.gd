@@ -22,7 +22,6 @@ func _process(_delta):
 		$Home/Time.text = "00:00"
 		$Popup/Time2.text = "00:00"
 		$Play.disabled = false
-		$TimeOut.play()
 
 	elif $Timer.time_left >= 1:
 		$Play.disabled = true
@@ -36,7 +35,7 @@ func _calcular_timer():
 	time_now = OS.get_datetime()
 	limit = time_now
 	$Timer.wait_time = 0
-	
+	print(time_now)
 	if(time_now['month'] == Game.timeRedCard['month'] && time_now['day'] == Game.timeRedCard['day']):
 		limit['hour'] = Game.timeRedCard['hour'] - time_now['hour']
 			
