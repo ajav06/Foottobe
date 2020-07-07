@@ -3,7 +3,7 @@ extends Node2D
 var time = null
 var cards = null
 var user_ans=-1
-var number_questions = 5
+var number_questions = 10
 
 var turn
 onready var total_questions:Dictionary  = Game.load_data(Game.questions)
